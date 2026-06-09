@@ -1,9 +1,17 @@
+"use client";
+
 import google from "@/public/Google.png";
 import gitHub from "@/public/GitHub.svg";
 import logo from "@/public/logo.png";
 import Image from "next/image";
+import LoginForm from "./loginForm";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import RegisterForm from "./regiterForm";
 
 export default function AuthContent() {
+  const path = usePathname();
+
   return (
     <div className="h-svh min-w-full flex items-center justify-center bg-auth">
       <div className="overlay flex justify-center items-center">
@@ -19,52 +27,59 @@ export default function AuthContent() {
             />
             هم‌افزا
           </div>
-          <form>
-            <div className="mb-2 flex flex-col gap-1 focus-within:text-cyan-500">
-              <label htmlFor="email">ایمیل</label>
-              <input
-                type="email"
-                name="email"
-                className="border rounded p-2 py-1"
-              />
-            </div>
-            <div className="mb-2 flex flex-col gap-1 focus-within:text-cyan-500">
-              <label htmlFor="password">رمز عبور</label>
-              <input
-                type="password"
-                name="password"
-                className="border rounded p-2 py-1"
-              />
-            </div>
-            <button className="w-full py-1 bg-black/25 cursor-pointer rounded hover:bg-black/75">
-              ورود
-            </button>
-          </form>
 
-          <div className="border-b my-4 border-black/50"></div>
+          {path === "/auth" ? <LoginForm /> : <RegisterForm />}
 
-          <button className="w-full py-1 flex justify-center items-center gap-2 bg-white/25 cursor-pointer rounded hover:bg-white/75 hover:text-black">
-            <Image
-              src={google}
-              alt="Google"
-              width={100}
-              height={100}
-              loading="eager"
-              className="size-6"
-            />
-            ادامه با گوگل
-          </button>
-          <button className="w-full mt-2 py-1 flex justify-center items-center gap-2 bg-white/25 cursor-pointer rounded hover:bg-white/75 hover:text-black">
-            <Image
-              src={gitHub}
-              alt="GitHub"
-              width={100}
-              height={100}
-              loading="eager"
-              className="size-6"
-            />
-            ادامه با گیت هاب
-          </button>
+          {path !== "/auth/register" && (
+            <>
+              <div className="border-b my-4 border-black/50"></div>
+
+              <button className="w-full py-1 flex justify-center items-center gap-2 bg-white/25 cursor-pointer rounded hover:bg-white/75 hover:text-black">
+                <Image
+                  src={google}
+                  alt="Google"
+                  width={100}
+                  height={100}
+                  loading="eager"
+                  className="size-6"
+                />
+                ادامه با گوگل
+              </button>
+              <button className="w-full mt-2 py-1 flex justify-center items-center gap-2 bg-white/25 cursor-pointer rounded hover:bg-white/75 hover:text-black">
+                <Image
+                  src={gitHub}
+                  alt="GitHub"
+                  width={100}
+                  height={100}
+                  loading="eager"
+                  className="size-6"
+                />
+                ادامه با گیت هاب
+              </button>
+            </>
+          )}
+          
+          <div className="flex gap-1 justify-center mt-4">
+            {path === "/auth" ? (
+              <>
+                حساب کاربری ندارید؟
+                <Link
+                  href="/auth/register"
+                  className="underline hover:text-cyan-500"
+                >
+                  ثبت نام
+                </Link>
+                کنید.
+              </>
+            ) : (
+              <>
+                حساب کاربری دارید؟
+                <Link href="/auth" className="underline hover:text-cyan-500">
+                  وارد شوید
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
