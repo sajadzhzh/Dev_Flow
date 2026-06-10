@@ -8,6 +8,7 @@ import LoginForm from "./loginForm";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import RegisterForm from "./regiterForm";
+import "./auth.css";
 
 export default function AuthContent() {
   const path = usePathname();
@@ -58,7 +59,7 @@ export default function AuthContent() {
               </button>
             </>
           )}
-          
+
           <div className="flex gap-1 justify-center mt-4">
             {path === "/auth" ? (
               <>
