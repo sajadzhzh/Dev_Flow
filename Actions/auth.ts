@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn } from "@/auth";
+import { auth, signIn } from "@/auth";
 import { ValidateEmail, ValidatePassword } from "@/Lib/Helper/CheckValid";
 import { postFetch } from "@/Lib/Helper/Fetch";
 
@@ -106,4 +106,16 @@ export async function login(state: any, formData: FormData) {
       message: `Something happend: ${e.message}`,
     };
   }
+}
+
+export async function me() {
+  const session = await auth();
+
+  if (!session?.user) {
+    return null;
+  }
+  
+  return {
+    user: session.user,
+  };
 }

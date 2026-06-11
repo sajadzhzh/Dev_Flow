@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import Providers from "@/Components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +27,10 @@ export default function RootLayout({
   return (
     <html lang="fa" className={`${geistSans.variable} ${vazirmatn.variable}`}>
       <body>
-        {children}
-        <Toaster position="top-center"/>
+        <Providers>
+          {children}
+          <Toaster position="top-center" />
+        </Providers>
       </body>
     </html>
   );
