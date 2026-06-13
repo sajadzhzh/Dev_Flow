@@ -45,11 +45,20 @@ input:focus {
   background: rgba(0, 0, 0, 0.7);
 }
 
-.bg-auth{
-    background-image: url(../public/smoke.png);
-    background-size: cover;
+.bg-auth {
+  background-image: url(../public/smoke.png);
+  background-size: cover;
 }
 
-.text-small{
+.text-small {
   font-size: 10px !important;
+}
+
+.menu-item-active {
+  background-image: linear-gradient(
+    to left,
+    rgba(88, 136, 224, 0.158),
+    rgb(74, 0, 158),
+    rgb(0, 102, 255)
+  );
 }

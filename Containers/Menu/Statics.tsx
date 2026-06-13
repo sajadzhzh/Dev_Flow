@@ -1,0 +1,21 @@
+import { LogOut, Settings, User } from "lucide-react";
+import Link from "next/link";
+
+export default function MenuStatics(){
+    return(
+        <div className="flex flex-col gap-2">
+          <Link href="" className="p-2 flex gap-2 items-center rounded-xl">
+            <Settings />
+            تنظیمات
+          </Link>
+          <Link href="" className="p-2 flex gap-2 items-center rounded-xl">
+            <User />
+            پروفایل
+          </Link>
+          <Link href="" className="p-2 flex gap-2 items-center rounded-xl text-red-500">
+            <LogOut />
+            خروج
+          </Link>
+        </div>
+    )
+}

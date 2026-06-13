@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <div className="w-full py-3 px-6 flex justify-between items-center">
       <Button
-        style="cursor-pointer relative block md:hidden"
+        style="cursor-pointer relative block lg:hidden"
         onClick={hiddenMenu}
       >
         <Menu />
@@ -34,7 +34,7 @@ export default function Header() {
         هم‌افزا
       </Link>
 
-      <div className="hidden md:block w-1/3">
+      <div className="hidden lg:block w-1/3">
         <SearchHeader />
       </div>
 
@@ -46,9 +46,9 @@ export default function Header() {
           </div>
         </Button>
 
-        <div className="border-s hidden md:block border-gray-800 h-8"></div>
+        <div className="border-s hidden lg:block border-gray-800 h-8"></div>
 
-        <Button style="cursor-pointer hidden md:flex items-center gap-2 hover:bg-white/25 rounded-full">
+        <Button style="cursor-pointer hidden lg:flex items-center gap-2 hover:bg-white/25 rounded-full">
           <ChevronDown />
           {session?.user?.name}
           <Image
