@@ -6,13 +6,22 @@ import Logo from "@/public/logo.png";
 import Profile from "@/public/Profile.png";
 import SearchHeader from "@/Components/Layout/SearchHeader";
 import Button from "@/Components/ui/Button";
-import { Bell, ChevronDown } from "lucide-react";
+import { Bell, ChevronDown, Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
+import { hiddenMenu } from "@/Lib/Helper/Events";
 
 export default function Header() {
   const { data: session } = useSession();
+
   return (
     <div className="w-full py-3 px-6 flex justify-between items-center">
+      <Button
+        style="cursor-pointer relative block md:hidden"
+        onClick={hiddenMenu}
+      >
+        <Menu />
+      </Button>
+
       <Link href="/dashboard" className="flex items-center gap-2 text-xl">
         <Image
           src={Logo}
@@ -25,7 +34,7 @@ export default function Header() {
         هم‌افزا
       </Link>
 
-      <div className="w-1/3">
+      <div className="hidden md:block w-1/3">
         <SearchHeader />
       </div>
 
@@ -37,9 +46,9 @@ export default function Header() {
           </div>
         </Button>
 
-        <div className="border-s border-gray-800 h-8"></div>
+        <div className="border-s hidden md:block border-gray-800 h-8"></div>
 
-        <Button style="cursor-pointer flex items-center gap-2 hover:bg-white/25 rounded-full">
+        <Button style="cursor-pointer hidden md:flex items-center gap-2 hover:bg-white/25 rounded-full">
           <ChevronDown />
           {session?.user?.name}
           <Image
