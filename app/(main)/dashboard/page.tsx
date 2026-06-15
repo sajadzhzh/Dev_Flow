@@ -3,6 +3,7 @@ import CardItem from "@/Components/ui/CardItem";
 import Card from "@/Components/ui/SmallCard";
 import { LayoutGrid } from "lucide-react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -30,12 +31,39 @@ export default function DashboardPage() {
 
       <div className="w-full flex gap-5 flex-wrap flex-col lg:flex-row">
         <div className="grow lg:max-w-1/2 border border-gray-600 bg-[#18181B] rounded-xl py-3 px-5"></div>
-        <div className="grow lg:max-w-1/2 border border-gray-600 bg-[#18181B] rounded-xl py-3 px-5">
+        <div className="grow lg:max-w-1/2 border border-gray-600 bg-[#18181B] rounded-xl py-3 px-5 h-max">
           <div className="w-full text-sm text-gray-400 mb-5">
             پیشرفت پروژه‌ها
           </div>
 
-          <CardItem />
+          <CardItem
+            priority="critical"
+            name="طراحی سایت فروشگاهی"
+            lastUpdate="2"
+            percent={50}
+          />
+          <CardItem
+            priority="high"
+            name="طراحی سایت فروشگاهی"
+            lastUpdate="2"
+            percent={50}
+          />
+          <CardItem
+            priority="mid"
+            name="طراحی سایت فروشگاهی"
+            lastUpdate="2"
+            percent={50}
+          />
+          <CardItem
+            priority="low"
+            name="طراحی سایت فروشگاهی"
+            lastUpdate="2"
+            percent={50}
+          />
+
+          <div className="w-full text-sm flex justify-end text-gray-400 mt-5">
+            <Link href="" className="p-1 px-2 rounded-xl bg-white/25 hover:bg-white/50 hover:text-gray-900">مشاهده همه پروژه‌ها</Link>
+          </div>
         </div>
       </div>
     </div>
