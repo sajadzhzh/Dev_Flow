@@ -58,8 +58,8 @@ input:focus {
 .menu-item-active {
   background-image: linear-gradient(
     to left,
-    rgb(0, 102, 255),
-    rgba(88, 136, 224, 0.514),
+    #1447e6,
+    #1449e660,
     rgb(74, 0, 158)
   );
 }
