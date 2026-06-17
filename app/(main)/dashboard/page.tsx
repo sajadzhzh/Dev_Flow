@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function DashboardPage() {
   const { data: session } = useSession();
   return (
-    <div className="w-full flex flex-col gap-5 p-5">
+    <div className="w-full flex flex-col gap-3 p-5">
       <div className="w-full flex flex-col lg:flex-row gap-2">
         <div className="flex items-center justify-end gap-2 w-full lg:w-1/2 h-max order-1 lg:order-2">
           <div className="text-sm m-0">Dashboard</div>
@@ -69,7 +69,7 @@ export default function DashboardPage() {
             پیشرفت پروژه‌ها
 
             <Link
-              href=""
+              href="/dashboard/projects"
               className="p-1 px-2 rounded-xl bg-white/25 hover:bg-white/50 hover:text-gray-900"
             >
               مشاهده همه پروژه‌ها
