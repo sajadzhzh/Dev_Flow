@@ -12,7 +12,7 @@ export default function Projects() {
         <p className="text-gray-500 text-center w-1/10">سررسید</p>
         <p className="text-gray-500 text-end w-1/10">عملیات</p>
       </div>
-      <div className="flex flex-col gap-2 p-2 h-100 overflow-y-scroll scrollbar-none">
+      <div className="flex flex-col gap-2 p-2 h-105 overflow-y-scroll scrollbar-none">
         <ProjectItem />
         <ProjectItem />
         <ProjectItem />

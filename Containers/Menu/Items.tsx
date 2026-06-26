@@ -12,7 +12,7 @@ export default function MenuItems(){
             <House />
             داشبورد
           </Link>
-          <Link href="/dashboard/projects" className={path === "/dashboard/projects" ? "p-2 flex gap-2 items-center rounded-xl menu-item-active" : "p-2 flex gap-2 items-center rounded-xl"}>
+          <Link href="/dashboard/projects" className={path.startsWith("/dashboard/projects")? "p-2 flex gap-2 items-center rounded-xl menu-item-active" : "p-2 flex gap-2 items-center rounded-xl"}>
             <Folder />
             پروژه‌ها
           </Link>
