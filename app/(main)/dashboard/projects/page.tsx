@@ -1,4 +1,7 @@
+import SearchItems from "@/Components/Layout/Search";
+import SelectBox from "@/Components/ui/Select";
 import Card from "@/Components/ui/SmallCard";
+import Projects from "@/Containers/Projects/Projects";
 import { Folder, LayoutGrid } from "lucide-react";
 
 export default function ProjectsPage() {
@@ -31,6 +34,34 @@ export default function ProjectsPage() {
         <Card type="done">تکمیل شده</Card>
         <Card type="suspend">متوقف شده</Card>
       </div>
+
+      <div className="w-full flex flex-col xl:flex-row xl:justify-between gap-4">
+        <div className="flex gap-2 flex-wrap">
+          <SelectBox
+          name="filterTime"
+          id="filterTime"
+          values={["جدیدترین", "قدیمی ترین", "بیشترین پیشرفت"]}
+        />
+
+        <SelectBox
+          name="filterStatus"
+          id="filterStatus"
+          values={["همه وضعیت ها", "تکمیل شده", "در حال انجام", "متوقف شده"]}
+        />
+
+        <SelectBox
+          name="filterPaticipants"
+          id="filterPaticipants"
+          values={["همه اعضا", "sajad", "ali", "mohammad"]}
+        />
+        </div>
+
+        <div className="w-full xl:w-1/3">
+          <SearchItems name="searchProjects" placeholder="جستجو در پروژه ها"/>
+        </div>
+      </div>
+
+      <Projects />
     </div>
   );
 }
