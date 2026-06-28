@@ -1,7 +1,7 @@
 "use client";
 import CardItem from "@/Components/ui/CardItem";
 import Card from "@/Components/ui/SmallCard";
-import TaskTableItem from "@/Components/ui/Tasktableitem";
+import TaskTableItem from "@/Components/ui/TaskTableItem";
 import TodaysTasks from "@/Components/ui/TodaysTasks";
 import { LayoutGrid } from "lucide-react";
 import { useSession } from "next-auth/react";
