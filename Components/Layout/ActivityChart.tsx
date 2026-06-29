@@ -12,8 +12,8 @@ import {
 
 export default function ActivityChart({ data }: { data: object[] }) {
   return (
-    <div className="h-full w-full">
-      <ResponsiveContainer>
+    <div className="h-70 w-full">
+      <ResponsiveContainer height={230} width={"100%"}>
         <AreaChart data={data}>
           <defs>
             <linearGradient id="activity" x1="0" y1="0" x2="0" y2="1">

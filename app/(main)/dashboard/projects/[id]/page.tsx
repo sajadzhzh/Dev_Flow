@@ -14,6 +14,8 @@ import Button from "@/Components/ui/Button";
 import "./style.css";
 import QuickInfo from "@/Containers/Projects/Dtails/QuickInfo";
 import ActivityChart from "@/Components/Layout/ActivityChart";
+import AboutProject from "@/Containers/Projects/Dtails/About";
+import ProjectUsers from "@/Containers/Projects/Dtails/Users";
 
 export default async function ProjectDetails({
   params,
@@ -23,7 +25,7 @@ export default async function ProjectDetails({
   const { id } = await params;
 
   return (
-    <div className="w-full flex flex-col gap-3 p-5">
+    <div className="w-full flex flex-col gap-3 p-3">
       <div className="flex items-center gap-2 justify-end">
         <div className="text-sm m-0">Dashboard / Projects / {id}</div>
         <LayoutGrid className="text-blue-700" />
@@ -118,7 +120,7 @@ export default async function ProjectDetails({
       </div>
 
       <div className="w-full flex bg-[#18181B] rounded-xl border-b-2 border-gray-600">
-        <Button style="w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326] rounded-s-xl project-subMenu-active">
+        <Button style="w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326] rounded-s-xl active-project project-subMenu-active">
           <LayoutGrid />
           نمای کلی
         </Button>
@@ -140,12 +142,13 @@ export default async function ProjectDetails({
         </Button>
       </div>
 
-      <div className="w-full flex flex-col lg:flex-row gap-2">
-        <div className="w-full lg:w-1/4 bg-[#18181B] rounded-xl border border-gray-600">
+      <div className="w-full flex flex-col xl:flex-row gap-2 h-70">
+        <div className="w-full xl:w-1/4 bg-[#18181B] rounded-xl border border-gray-600">
           <QuickInfo />
         </div>
-        <div className="w-full lg:w-1/2 bg-[#18181B] rounded-xl border border-gray-600 py-3 ps-10">
-          <div className="w-full h-72 flex flex-col items-center justify-center">
+
+        <div className="w-full xl:w-1/2 bg-[#18181B] rounded-xl border border-gray-600 py-3 ps-10">
+          <div className="w-full h-72 flex flex-col items-center justify-center gap-2">
             پیشرفت پروژه
             <ActivityChart
               data={[
@@ -160,7 +163,15 @@ export default async function ProjectDetails({
             />
           </div>
         </div>
-        <div className="w-full lg:w-1/4 bg-[#18181B] rounded-xl border border-gray-600"></div>
+
+        <div className="w-full xl:w-1/4 flex flex-col gap-2"> 
+              <div className="w-full py-3 px-5 bg-[#18181B] rounded-xl border border-gray-600 h-[60%] overflow-y-scroll scrollbar-none">
+                <AboutProject status="active"/>
+              </div>
+              <div className="w-full py-3 px-5 bg-[#18181B] rounded-xl border border-gray-600 h-[40%]">
+                <ProjectUsers status="active"/>
+              </div>
+        </div>
       </div>
     </div>
   );
