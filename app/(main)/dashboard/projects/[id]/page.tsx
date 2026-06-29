@@ -16,6 +16,7 @@ import QuickInfo from "@/Containers/Projects/Dtails/QuickInfo";
 import ActivityChart from "@/Components/Layout/ActivityChart";
 import AboutProject from "@/Containers/Projects/Dtails/About";
 import ProjectUsers from "@/Containers/Projects/Dtails/Users";
+import ProjectDates from "@/Containers/Projects/Dtails/Dates";
 
 export default async function ProjectDetails({
   params,
@@ -172,6 +173,13 @@ export default async function ProjectDetails({
                 <ProjectUsers status="active"/>
               </div>
         </div>
+      </div>
+
+      <div className="w-full flex flex-col xl:flex-row gap-2 h-full">
+        <div className="w-full xl:w-1/3 border border-gray-600 bg-[#18181B] py-3 px-5 rounded-xl">
+              <ProjectDates />
+        </div>
+        <div className="w-full xl:w-2/3 border border-gray-600 bg-[#18181B] py-3 px-5 rounded-xl"></div>
       </div>
     </div>
   );
