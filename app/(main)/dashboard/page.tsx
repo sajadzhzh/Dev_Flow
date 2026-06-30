@@ -6,6 +6,12 @@ import TodaysTasks from "@/Components/ui/TodaysTasks";
 import { LayoutGrid } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import {
+  Clock,
+  Folders,
+  SquarePause,
+  Users,
+} from "lucide-react";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -25,17 +31,34 @@ export default function DashboardPage() {
       </div>
 
       <div className="w-full flex gap-5 flex-wrap flex-col lg:flex-row">
-        <Card type="project">پروژه‌ها</Card>
-        <Card type="team">اعضای تیم</Card>
-        <Card type="task">تسک‌ها</Card>
-        <Card type="report">تسک‌های امروز</Card>
+        <Card
+          title="پروژه‌ها"
+          value={20}
+          trend={2}
+          icon={Folders}
+          color="purple"
+        />
+        <Card title="اعضای تیم" value={5} icon={Users} color="blue" />
+        <Card
+          title="پروژه‌های متوقف شده"
+          value={2}
+          trend={0}
+          icon={SquarePause}
+          color="red"
+        />
+        <Card
+          title="تسک‌های امروز"
+          value={17}
+          trend={4}
+          icon={Clock}
+          color="orange"
+        />{" "}
       </div>
 
       <div className="w-full flex gap-5 flex-wrap flex-col lg:flex-row">
         <div className="grow lg:max-w-1/2 border border-gray-600 bg-[#18181B] rounded-xl py-3 px-5 h-80 overflow-y-scroll scrollbar-none relative">
           <div className="w-full flex justify-between items-center text-sm text-gray-400 mb-4">
             فعالیت های اخیر
-
             <Link
               href=""
               className="p-1 px-2 rounded-xl bg-white/25 hover:bg-white/50 hover:text-gray-900"
@@ -67,7 +90,6 @@ export default function DashboardPage() {
         <div className="grow lg:max-w-1/2 border border-gray-600 bg-[#18181B] rounded-xl py-3 px-5 h-80 overflow-y-scroll scrollbar-none relative">
           <div className="w-full flex justify-between items-center text-sm text-gray-400 mb-4">
             پیشرفت پروژه‌ها
-
             <Link
               href="/dashboard/projects"
               className="p-1 px-2 rounded-xl bg-white/25 hover:bg-white/50 hover:text-gray-900"

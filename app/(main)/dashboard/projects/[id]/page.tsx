@@ -3,7 +3,7 @@ import Image from "next/image";
 import Profile from "@/public/Profile.png";
 import ProgressRing from "@/Components/Layout/ProgressRing";
 import "./style.css";
-import ProjectDetailsNavPanel from "@/Containers/Projects/Details/OverView/NavPanel";
+import ProjectDetailsNavPanel from "@/Containers/Projects/Details/NavPanel";
 import ProjectDetailsModifier from "@/Containers/Projects/Details/DetailsModifier";
 
 export default async function ProjectDetails({

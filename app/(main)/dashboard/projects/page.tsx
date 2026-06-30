@@ -2,7 +2,14 @@ import SearchItems from "@/Components/Layout/Search";
 import SelectBox from "@/Components/ui/Select";
 import Card from "@/Components/ui/SmallCard";
 import Projects from "@/Containers/Projects/Projects";
-import { Folder, LayoutGrid } from "lucide-react";
+import {
+  Folder,
+  FolderOpen,
+  Folders,
+  SquareCheck,
+  SquarePause,
+  LayoutGrid,
+} from "lucide-react";
 
 export default function ProjectsPage() {
   return (
@@ -29,35 +36,62 @@ export default function ProjectsPage() {
       </div>
 
       <div className="w-full flex gap-5 flex-wrap flex-col lg:flex-row">
-        <Card type="allProjects">کل پروژه‌ها</Card>
-        <Card type="doing">پروژه‌های فعال</Card>
-        <Card type="done">تکمیل شده</Card>
-        <Card type="suspend">متوقف شده</Card>
+        <Card
+          title="کل پروژه‌ها"
+          value={20}
+          trend={2}
+          icon={Folders}
+          color="purple"
+        />
+
+        <Card
+          title="پروژه‌های فعال"
+          value={12}
+          trend={3}
+          icon={FolderOpen}
+          color="blue"
+        />
+
+        <Card
+          title="پروژه‌های تکمیل شده"
+          value={8}
+          trend={1}
+          icon={SquareCheck}
+          color="green"
+        />
+
+        <Card
+          title="پروژه‌های متوقف شده"
+          value={2}
+          trend={0}
+          icon={SquarePause}
+          color="orange"
+        />
       </div>
 
       <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-4">
         <div className="flex gap-2 flex-wrap">
           <SelectBox
-          name="filterTime"
-          id="filterTime"
-          values={["جدیدترین", "قدیمی ترین", "بیشترین پیشرفت"]}
-        />
+            name="filterTime"
+            id="filterTime"
+            values={["جدیدترین", "قدیمی ترین", "بیشترین پیشرفت"]}
+          />
 
-        <SelectBox
-          name="filterStatus"
-          id="filterStatus"
-          values={["همه وضعیت ها", "تکمیل شده", "در حال انجام", "متوقف شده"]}
-        />
+          <SelectBox
+            name="filterStatus"
+            id="filterStatus"
+            values={["همه وضعیت ها", "تکمیل شده", "در حال انجام", "متوقف شده"]}
+          />
 
-        <SelectBox
-          name="filterPaticipants"
-          id="filterPaticipants"
-          values={["همه اعضا", "sajad", "ali", "mohammad"]}
-        />
+          <SelectBox
+            name="filterPaticipants"
+            id="filterPaticipants"
+            values={["همه اعضا", "sajad", "ali", "mohammad"]}
+          />
         </div>
 
         <div className="w-full lg:w-1/3">
-          <SearchItems name="searchProjects" placeholder="جستجو در پروژه ها"/>
+          <SearchItems name="searchProjects" placeholder="جستجو در پروژه ها" />
         </div>
       </div>
 

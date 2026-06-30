@@ -8,7 +8,7 @@ export default function SearchItems({
   placeholder: string;
 }) {
   return (
-    <form className="flex items-center relative">
+    <form className="flex items-center relative w-full">
       <Search className="absolute right-2 text-gray-500" />
       <input
         type="text"

@@ -1,66 +1,69 @@
-import { ArrowUp, Clock, Folder, FolderOpen, Folders, SquareCheck, SquarePause, Users } from "lucide-react";
+import { ArrowUp, LucideIcon } from "lucide-react";
 import { ReactNode } from "react";
 
-export default function Card({
-  type,
-  children,
-}: {
-  children: ReactNode;
-  type: "project" | "task" | "team" | "report" | "suspend" | "doing" | "allProjects" | "done";
-}) {
-  return (
-    <div className="grow min-w-60 border border-gray-600 bg-[#18181B] rounded-xl py-3 px-5">
-      <div className="flex justify-between items-center">
-        <div className="flex flex-col gap-1">
-            <h3 className="text-sm text-gray-400">{children}</h3>
-            <p className="text-2xl">12</p>
-            <div className="text-[#22C55E] text-small flex items-center gap-1">
-                <ArrowUp className="w-4"/>
-                2 این هفته
-            </div>
-        </div>
-        
+type CardColor = "blue" | "green" | "purple" | "orange" | "red";
 
-        {type === "project" && (
-          <div className="p-3 bg-[#8a5cf65b] text-[#8B5CF6] rounded-2xl">
-            <Folder />
-          </div>
-        )}
-        {type === "team" && (
-          <div className="p-3 bg-[#3b83f665] text-[#3B82F6] rounded-2xl">
-            <Users />
-          </div>
-        )}
-        {type === "task" && (
-          <div className="p-3 bg-[#22c55e4d] text-[#22C55E] rounded-2xl">
-            <SquareCheck />
-          </div>
-        )}
-        {type === "report" && (
-          <div className="p-3 bg-[#f59f0b5b] text-[#F59E0B] rounded-2xl">
-            <Clock />
-          </div>
-        )}
-        {type === "suspend" && (
-          <div className="p-3 bg-[#f59f0b5b] text-[#F59E0B] rounded-2xl">
-            <SquarePause />
-          </div>
-        )}
-        {type === "doing" && (
-          <div className="p-3 bg-[#3b83f665] text-[#3B82F6] rounded-2xl">
-            <FolderOpen />
-          </div>
-        )}
-        {type === "allProjects" && (
-          <div className="p-3 bg-[#8a5cf65b] text-[#8B5CF6] rounded-2xl">
-            <Folders />
-          </div>
-        )}
-        {type === "done" && (
-          <div className="p-3 bg-[#22c55e4d] text-[#22C55E] rounded-2xl">
-            <SquareCheck />
-          </div>
-        )}
+const variants = {
+  blue: {
+    bg: "bg-[#3b83f665]",
+    text: "text-[#3B82F6]",
+  },
+  green: {
+    bg: "bg-[#22c55e4d]",
+    text: "text-[#22C55E]",
+  },
+  purple: {
+    bg: "bg-[#8a5cf65b]",
+    text: "text-[#8B5CF6]",
+  },
+  orange: {
+    bg: "bg-[#f59f0b5b]",
+    text: "text-[#F59E0B]",
+  },
+  red: {
+    bg: "bg-[#ef44444d]",
+    text: "text-[#EF4444]",
+  },
+};
+
+interface CardProps {
+  title: ReactNode;
+  value: number | string;
+  trend?: number;
+  icon: LucideIcon;
+  color: CardColor;
+}
+
+export default function Card({
+  title,
+  value,
+  trend,
+  icon: Icon,
+  color,
+}: CardProps) {
+  const variant = variants[color];
+
+  return (
+    <div className="grow min-w-55 rounded-xl border border-gray-600 bg-[#18181B] py-3 px-5">
+      <div className="flex items-center justify-between">
+
+        <div className="flex flex-col gap-1">
+          <h3 className="text-sm text-gray-400">{title}</h3>
+
+          <p className="text-2xl font-semibold">{value}</p>
+
+          {trend !== undefined && (
+            <div className="flex items-center gap-1 text-sm text-[#22C55E]">
+              <ArrowUp className="w-4 h-4" />
+              {trend} این هفته
+            </div>
+          )}
+        </div>
+
+        <div className={`p-3 rounded-2xl ${variant.bg} ${variant.text}`}>
+          <Icon />
+        </div>
+
       </div>
     </div>
   );
