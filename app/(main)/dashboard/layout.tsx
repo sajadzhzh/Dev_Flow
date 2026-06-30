@@ -14,7 +14,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             <Header />
           </div>
           <div className="container mx-auto flex gap-3 grow">
-            <div className="hidden lg:block min-w-1/5 bg-black/75 rounded-xl border border-gray-800 p-3 grow">
+            <div className="hidden lg:block max-w-75 min-w-1/5 bg-black/75 rounded-xl border border-gray-800 p-3 grow">
               <MenuItems />
               <MenuStatics />
             </div>
