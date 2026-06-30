@@ -17,6 +17,7 @@ import ActivityChart from "@/Components/Layout/ActivityChart";
 import AboutProject from "@/Containers/Projects/Dtails/About";
 import ProjectUsers from "@/Containers/Projects/Dtails/Users";
 import ProjectDates from "@/Containers/Projects/Dtails/Dates";
+import LastActivities from "@/Containers/Projects/Dtails/LastActs";
 
 export default async function ProjectDetails({
   params,
@@ -143,7 +144,7 @@ export default async function ProjectDetails({
         </Button>
       </div>
 
-      <div className="w-full flex flex-col xl:flex-row gap-2 h-70">
+      <div className="w-full flex flex-col xl:flex-row gap-2 xl:h-70">
         <div className="w-full xl:w-1/4 bg-[#18181B] rounded-xl border border-gray-600">
           <QuickInfo />
         </div>
@@ -165,21 +166,23 @@ export default async function ProjectDetails({
           </div>
         </div>
 
-        <div className="w-full xl:w-1/4 flex flex-col gap-2"> 
-              <div className="w-full py-3 px-5 bg-[#18181B] rounded-xl border border-gray-600 h-[60%] overflow-y-scroll scrollbar-none">
-                <AboutProject status="active"/>
-              </div>
-              <div className="w-full py-3 px-5 bg-[#18181B] rounded-xl border border-gray-600 h-[40%]">
-                <ProjectUsers status="active"/>
-              </div>
+        <div className="w-full xl:w-1/4 flex flex-col gap-2">
+          <div className="w-full py-3 px-5 bg-[#18181B] rounded-xl border border-gray-600 h-[60%] overflow-y-scroll scrollbar-none">
+            <AboutProject status="active" />
+          </div>
+          <div className="w-full py-3 px-5 bg-[#18181B] rounded-xl border border-gray-600 h-[40%]">
+            <ProjectUsers status="active" />
+          </div>
         </div>
       </div>
 
-      <div className="w-full flex flex-col xl:flex-row gap-2 h-full">
-        <div className="w-full xl:w-1/3 border border-gray-600 bg-[#18181B] py-3 px-5 rounded-xl">
-              <ProjectDates />
+      <div className="w-full flex flex-col xl:flex-row gap-2">
+        <div className="w-full xl:w-1/3 border border-gray-600 bg-[#18181B] py-2 px-5 rounded-xl">
+          <ProjectDates />
         </div>
-        <div className="w-full xl:w-2/3 border border-gray-600 bg-[#18181B] py-3 px-5 rounded-xl"></div>
+        <div className="w-full xl:w-2/3 border border-gray-600 bg-[#18181B] py-3 px-5 rounded-xl">
+          <LastActivities status="active"/>
+        </div>
       </div>
     </div>
   );
