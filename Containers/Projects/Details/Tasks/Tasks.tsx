@@ -3,7 +3,7 @@ import Button from "@/Components/ui/Button";
 import SelectBox from "@/Components/ui/Select";
 import Card from "@/Components/ui/SmallCard";
 import { List, Plus } from "lucide-react";
-import TaskItem from "./TaskItem";
+import TaskRow from "./TaskItem";
 
 export default function ProjectDetailsTasks() {
   return (
@@ -70,21 +70,21 @@ export default function ProjectDetailsTasks() {
           <p className="text-gray-500 text-center w-2/9">عملیات</p>
         </div>
         <div className="flex flex-col gap-2 p-2 h-57 overflow-y-scroll scrollbar-none z-0">
-          <TaskItem 
+          <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
             owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
             color="blue"
           />
-          <TaskItem 
+          <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
             owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
             color="green"
           />
-          <TaskItem 
+          <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
             owner="sajadzhzh"
             date="1405/05/05"
