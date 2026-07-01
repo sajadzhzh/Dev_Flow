@@ -3,6 +3,7 @@ import Button from "@/Components/ui/Button";
 import SelectBox from "@/Components/ui/Select";
 import Card from "@/Components/ui/SmallCard";
 import { List, Plus } from "lucide-react";
+import TaskItem from "./TaskItem";
 
 export default function ProjectDetailsTasks() {
   return (
@@ -62,13 +63,35 @@ export default function ProjectDetailsTasks() {
 
       <div className="w-full xl:bg-[#18181B] xl:border border-gray-600 rounded-xl">
         <div className="py-3 px-5 hidden xl:flex border-b border-gray-600">
-          <p className="text-gray-500 w-3/8">تسک</p>
-          <p className="text-gray-500 text-center w-1/8">اولویت</p>
-          <p className="text-gray-500 text-center w-1/8">مسئول</p>
-          <p className="text-gray-500 text-center w-2/8">تاریخ سررسید</p>
-          <p className="text-gray-500 text-end w-1/8">عملیات</p>
+          <p className="text-gray-500 w-3/9">تسک</p>
+          <p className="text-gray-500 text-center w-1/9">اولویت</p>
+          <p className="text-gray-500 text-center w-1/9">مسئول</p>
+          <p className="text-gray-500 text-center w-2/9">تاریخ سررسید</p>
+          <p className="text-gray-500 text-center w-2/9">عملیات</p>
         </div>
-        <div className="flex flex-col gap-2 p-2 h-57 overflow-y-scroll scrollbar-none"></div>
+        <div className="flex flex-col gap-2 p-2 h-57 overflow-y-scroll scrollbar-none z-0">
+          <TaskItem 
+            title={"تحقیق و تحلیل نیازمندی ها"}
+            owner="sajadzhzh"
+            date="1405/05/05"
+            priority="حیاتی"
+            color="blue"
+          />
+          <TaskItem 
+            title={"تحقیق و تحلیل نیازمندی ها"}
+            owner="sajadzhzh"
+            date="1405/05/05"
+            priority="حیاتی"
+            color="green"
+          />
+          <TaskItem 
+            title={"تحقیق و تحلیل نیازمندی ها"}
+            owner="sajadzhzh"
+            date="1405/05/05"
+            priority="حیاتی"
+            color="red"
+          />
+        </div>
       </div>
     </div>
   );
