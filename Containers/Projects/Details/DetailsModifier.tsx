@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import ProjectDetailsOverView from "./OverView/Details";
 import ProjectDetailsTasks from "./Tasks/Tasks";
+import ProjectDetailsUsers from "./Users/Users";
 
 export default function ProjectDetailsModifier() {
   const searchParams = useSearchParams();
@@ -12,7 +13,7 @@ export default function ProjectDetailsModifier() {
     case "tasks":
       return <ProjectDetailsTasks />;
     case "users":
-      return <>users</>;
+      return <ProjectDetailsUsers />;
     case "files":
       return <>files</>;
     case "activities":
