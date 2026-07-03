@@ -3,8 +3,8 @@
 import { Dot } from "lucide-react";
 import Image from "next/image";
 import Profile from "@/public/Profile.png";
-import { ReactNode, useEffect, useRef, useState } from "react";
-import TaskMenu from "./TaskMenuProps";
+import { ReactNode } from "react";
+import DropdownMenu from "../../../../Components/ui/DropDownMenu";
 
 type CardColor = "blue" | "green" | "red";
 
@@ -32,6 +32,35 @@ const variants = {
   },
 };
 
+const menus = [
+  {
+    title: "مشاهده جزئیات",
+    href: "/dashboard/projects/1",
+  },
+  {
+    title: "ویرایش",
+    onClick: () => console.log("edit"),
+  },
+  {
+    title: "مدیریت اعضا",
+    href: "/dashboard/projects/1?view=users",
+  },
+  {
+    title: "کپی لینک",
+    onClick: () => {
+      navigator.clipboard.writeText(window.location.href);
+    },
+  },
+  {
+    dividerBefore: true,
+    title: "حذف پروژه",
+    danger: true,
+    onClick: () => {
+      console.log("delete");
+    },
+  },
+];
+
 interface TaskProps {
   title: ReactNode;
   priority?: "حیاتی" | "بالا" | "متوسط" | "پائین";
@@ -47,27 +76,11 @@ export default function TaskRow({
   owner,
   color,
 }: TaskProps) {
-  const [ellipsis, setEllipsis] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const variant = variants[color];
-
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setEllipsis(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div
-      className={`w-full py-3 relative px-5 bg-[#18181B] border xl:bg-none hover:bg-[#28282B] ${variant.hover} rounded-xl ${ellipsis ? `${variant.border} bg-[#28282B]` : "border-white/10 bg-[#18181B]"}`}
+      className={`w-full py-3 relative px-5 bg-[#18181B] border xl:bg-none hover:bg-[#28282B] ${variant.hover} rounded-xl border-white/10`}
     >
       <div className="hidden xl:flex items-center">
         <div className="w-3/9 flex gap-2 items-center">
@@ -103,11 +116,7 @@ export default function TaskRow({
         <div className="w-2/9 text-center">{date}</div>
 
         <div className="w-2/9 text-center">
-          <TaskMenu
-            open={ellipsis}
-            onToggle={() => setEllipsis((prev) => !prev)}
-            menuRef={menuRef}
-          />
+          <DropdownMenu items={menus} />
         </div>
       </div>
 
@@ -131,11 +140,7 @@ export default function TaskRow({
           </div>
         </div>
 
-        <TaskMenu
-          open={ellipsis}
-          onToggle={() => setEllipsis((prev) => !prev)}
-          menuRef={menuRef}
-        />
+        <DropdownMenu items={menus} />
       </div>
     </div>
   );
