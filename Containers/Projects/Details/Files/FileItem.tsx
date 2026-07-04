@@ -27,7 +27,7 @@ const variants = {
   },
 };
 
-interface UserRowProps {
+interface FileRowProps {
   fileName: string;
   type: string;
   volume: string;
@@ -44,7 +44,7 @@ export default function FileRow({
   date,
   priority,
   menus
-}: UserRowProps) {
+}: FileRowProps) {
   const variant = variants[priority];
 
   return (

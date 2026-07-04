@@ -35,7 +35,7 @@ export default function ProjectDetailsFiles() {
           </div>
           <Button style="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl p-2 lg:w-1/3">
             <Plus />
-            آپلود حدید
+            آپلود جدید
           </Button>
         </div>
       </div>
@@ -49,6 +49,7 @@ export default function ProjectDetailsFiles() {
           <p className="text-gray-500 text-center w-2/11">تغییر دهنده</p>
           <p className="text-gray-500 text-center w-2/11">عملیات</p>
         </div>
+        
         <div className="flex flex-col gap-2 p-2 h-85 overflow-y-scroll scrollbar-none z-0">
             <FileRow 
             fileName="فایل تست"
