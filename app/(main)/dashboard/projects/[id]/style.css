@@ -2,17 +2,17 @@
     color: #3B82F6;
     outline: 2px solid #3B82F6;
     background-color: #232326;
-    z-index: 50;
+    z-index: 40;
 }
 .suspend-project.project-subMenu-active{
     color: #EF4444;
     outline: 2px solid #EF4444;
     background-color: #232326;
-    z-index: 50;
+    z-index: 40;
 }
 .done-project.project-subMenu-active{
     color: #22C55E;
     outline: 2px solid #22C55E;
     background-color: #232326;
-    z-index: 50;
+    z-index: 40;
 }

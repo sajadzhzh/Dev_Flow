@@ -13,7 +13,7 @@ export default function HiddenMenu() {
   const { data: session } = useSession();
   return (
     <div
-      className="absolute hidden h-svh bg-black/45 backdrop-blur-[2px] z-40"
+      className="absolute hidden h-svh bg-black/45 backdrop-blur-[2px] z-45"
       id="hidden_menu_con"
     >
       <div

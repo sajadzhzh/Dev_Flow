@@ -43,7 +43,7 @@ export default function ProjectDetailsUsers() {
           <p className="text-gray-500 text-center w-1/11">وضعیت</p>
           <p className="text-gray-500 text-center w-2/11">عملیات</p>
         </div>
-        <div className="flex flex-col gap-2 p-2 h-57 overflow-y-scroll scrollbar-none z-0">
+        <div className="flex flex-col gap-2 p-2 h-60 overflow-y-scroll scrollbar-none z-0">
           <UserRow
             name="sajadzhzh"
             label="supervisor"
