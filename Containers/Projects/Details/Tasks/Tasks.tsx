@@ -75,21 +75,28 @@ export default function ProjectDetailsTasks() {
             owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
-            color="blue"
+            Status="done"
           />
           <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
             owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
-            color="green"
+            Status="inProccess"
           />
           <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
             owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
-            color="red"
+            Status="suspend"
+          />
+          <TaskRow 
+            title={"تحقیق و تحلیل نیازمندی ها"}
+            owner="sajadzhzh"
+            date="1405/05/05"
+            priority="حیاتی"
+            Status="waiting"
           />
         </div>
       </div>

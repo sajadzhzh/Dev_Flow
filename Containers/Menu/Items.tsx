@@ -14,11 +14,11 @@ export default function MenuItems(){
           </Link>
           <Link href="/dashboard/projects" className={path.startsWith("/dashboard/projects")? "p-2 flex gap-2 items-center rounded-xl menu-item-active" : "p-2 flex gap-2 items-center rounded-xl"}>
             <Folder />
-            پروژه‌ها
+            پروژه‌های من
           </Link>
-          <Link href="" className="p-2 flex gap-2 items-center rounded-xl">
+          <Link href="/dashboard/tasks" className={path.startsWith("/dashboard/tasks")? "p-2 flex gap-2 items-center rounded-xl menu-item-active" : "p-2 flex gap-2 items-center rounded-xl"}>
             <SquareCheck />
-            تسک‌ها
+            تسک‌های من
           </Link>
           <Link href="" className="p-2 flex gap-2 items-center rounded-xl">
             <Calendar />
