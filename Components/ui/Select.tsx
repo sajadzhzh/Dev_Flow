@@ -4,15 +4,17 @@ export default function SelectBox({
   name,
   id,
   values,
+  smallY,
 }: {
   name: string;
   id: string;
   values: string[];
+  smallY?: boolean;
 }) {
   return (
     <div className="relative w-full xl:w-52">
       <select
-        className="
+        className={`
           peer
           w-full
           appearance-none
@@ -20,7 +22,7 @@ export default function SelectBox({
           border border-white/10
           bg-[#18181B]
           px-4
-          py-3
+          ${smallY ? "py-2" : "py-3"}
           pr-11
           text-sm
           text-white
@@ -30,12 +32,14 @@ export default function SelectBox({
           focus:border-violet-500
           focus:ring-2
           focus:ring-violet-500/20
-        "
+          `}
         name={name}
         id={id}
       >
-        {values.map((i,index) => (
-          <option value={i} key={index}>{i}</option>
+        {values.map((i, index) => (
+          <option value={i} key={index}>
+            {i}
+          </option>
         ))}
       </select>
 
