@@ -6,12 +6,14 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import Button from "@/Components/ui/Button";
 import Link from "next/link";
+import { Paperclip } from "lucide-react";
+import CheckListItem from "@/Components/ui/CheckList/Item";
 
 export default function TaskForm() {
   const id = 1;
   return (
     <form className="w-full flex flex-col lg:flex-row gap-3">
-      <div className="lg:w-1/4 flex flex-col gap-2">
+      <div className="lg:w-1/4 flex flex-col gap-1">
         <div className="bg-[#18181b] py-4 px-5 flex flex-col gap-2 rounded-xl border border-gray-600">
           <h3>اطلاعات کلی</h3>
           <div className="flex flex-col gap-1">
@@ -94,7 +96,7 @@ export default function TaskForm() {
           </div>
         </div>
 
-        <div className="bg-[#18181b] py-4 px-5 flex flex-col gap-2 rounded-xl border border-gray-600">
+        <div className="bg-[#18181b] py-2 px-5 flex flex-col gap-2 rounded-xl border border-gray-600">
           <h3>اطلاعات بیشتر</h3>
 
           <div className="flex flex-col gap-1">
@@ -109,56 +111,95 @@ export default function TaskForm() {
             />
           </div>
 
-          <div className="flex flex-col gap-1">
-            <label
-              htmlFor="reminder"
-              className="flex items-center gap-1 justify-between  bg-[#18181B] cursor-pointer transition-colors"
-            >
-              <span className="text-[13px] text-gray-300">
-                یک روز قبل از سررسید به من یادآوری شود
-              </span>
-
-              <div className="relative">
-                <input
-                  id="reminder"
-                  name="reminder"
-                  type="checkbox"
-                  className="peer sr-only"
-                />
-
-                <div className="h-6 w-6 rounded-md border-2 border-gray-500 transition-all peer-checked:border-[#3B82F6] peer-checked:bg-[#3B82F6]"></div>
-
-                <svg
-                  className="pointer-events-none absolute left-1 top-1 hidden h-4 w-4 text-white peer-checked:block"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-            </label>
-          </div>
+          <CheckListItem title="یک روز قبل از سررسید به من یادآوری شود" name="bbb" />
         </div>
       </div>
 
       <div className="lg:w-3/4 flex flex-col gap-3">
-        <div className="bg-[#18181b] p-5 flex rounded-xl border border-gray-600">
-          <Button
-            type="submit"
-            style="grow h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
-          >
-            ذخیره
-          </Button>
-          <Link
-            href={`/dashboard/projects/${id}?view=tasks`}
-            className="grow h-max py-2 px-4 text-center bg-[#28282b] text-white rounded-xl cursor-pointer hover:bg-[#38383b]"
-          >
-            انصراف
-          </Link>
+        <div className="bg-[#18181b] p-5 flex flex-col gap-3 rounded-xl border border-gray-600">
+          <div className="w-full flex flex-col gap-2">
+            <label htmlFor="title" className="text-[13px]">
+              عنوان تسک
+            </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              className="w-full py-1 px-3 border border-gray-600 rounded-xl focus:border-gray-400 placeholder:text-gray-600 placeholder:text-sm"
+              placeholder="عنوان تسک را وارد کنید"
+            />
+          </div>
+
+          <div className="w-full flex flex-col gap-2">
+            <label htmlFor="explanation" className="text-[13px]">
+              توضیحات
+            </label>
+            <textarea
+              name="explanation"
+              rows={5}
+              id="explanation"
+              className="w-full py-1 px-3 border border-gray-600 rounded-xl focus:border-gray-400 outline-0 placeholder:text-gray-600 placeholder:text-sm"
+              placeholder="توضیحات تسک را وارد کنید"
+            />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-[13px]">پیوست فایل</label>
+
+            <label
+              htmlFor="attachments"
+              className="group flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-gray-600 bg-[#18181B] py-8 transition-all hover:border-[#3B82F6] hover:bg-[#202024]"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#3b83f633] text-[#3B82F6] group-hover:scale-105 transition">
+                <Paperclip className="size-6" />
+              </div>
+
+              <div className="text-center">
+                <p className="font-medium">فایل را اینجا رها کنید</p>
+
+                <p className="mt-1 text-sm text-gray-500">
+                  یا برای انتخاب فایل کلیک کنید
+                </p>
+
+                <p className="mt-2 text-xs text-gray-600">
+                  PNG, JPG, PDF, ZIP تا ۱۰ مگابایت
+                </p>
+              </div>
+
+              <input id="attachments" type="file" multiple className="hidden" />
+            </label>
+          </div>
+
+          <div className="w-full flex flex-col gap-2">
+            <label htmlFor="checkList" className="text-[13px]">
+              چک لیست
+            </label>
+            <input
+              type="text"
+              name="addCheckList"
+              className="w-full border border-gray-800 py-1 px-3  rounded-xl focus:border-gray-400 placeholder:text-gray-500"
+              placeholder="افزودن آیتم جدید"
+            />
+
+            <div className="mt-3 flex flex-col gap-2">
+              <CheckListItem title="طراحی UI" name="aaa"/>
+            </div>
+          </div>
+
+          <div className="w-full flex gap-3">
+            <Button
+              type="submit"
+              style="grow h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
+            >
+              ذخیره
+            </Button>
+            <Link
+              href={`/dashboard/projects/${id}?view=tasks`}
+              className="grow h-max py-2 px-4 text-center bg-[#28282b] text-white rounded-xl cursor-pointer hover:bg-[#38383b]"
+            >
+              انصراف
+            </Link>
+          </div>
         </div>
       </div>
     </form>
