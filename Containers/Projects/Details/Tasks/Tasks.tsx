@@ -53,7 +53,7 @@ export default function ProjectDetailsTasks() {
             <SearchItems name="searchTasks" placeholder="جستجو در تسک ها" />
           </div>
           <div className="w-full lg:w-1/3">
-            <Link href="1/tasks/new" className="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl w-full h-full py-2">
+            <Link href="/dashboard/projects/1/tasks/new" className="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl w-full h-full py-2">
               <Plus />
               تسک جدید
             </Link>

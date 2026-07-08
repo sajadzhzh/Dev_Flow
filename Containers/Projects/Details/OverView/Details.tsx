@@ -45,6 +45,7 @@ export default function ProjectDetailsOverView() {
           <ProjectDates />
         </div>
         <div className="w-full xl:w-2/3 border border-gray-600 bg-[#18181B] py-3 px-5 rounded-xl">
+          <h3 className="mb-1">اخرین فعالیت ها</h3>
           <LastActivities status="active" />
         </div>
       </div>

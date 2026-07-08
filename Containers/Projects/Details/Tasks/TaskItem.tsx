@@ -42,7 +42,7 @@ const variants = {
 const menus = [
   {
     title: "مشاهده جزئیات",
-    href: "/dashboard/projects/1",
+    href: "/dashboard/projects/1/tasks/1",
   },
   {
     title: "ویرایش",

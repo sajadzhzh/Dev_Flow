@@ -80,7 +80,7 @@ export default function DropdownMenu({
         onClick={() => setOpen((prev) => !prev)}
         style={`cursor-pointer rounded-xl border border-gray-600 bg-[#28282B] p-1 hover:bg-[#18181B] ${buttonClassName}`}
       >
-        {trigger ?? <EllipsisVertical />}
+        {trigger ?? <EllipsisVertical size={22}/>}
       </Button>
 
       <div

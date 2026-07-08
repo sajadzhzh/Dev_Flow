@@ -111,7 +111,10 @@ export default function TaskForm() {
             />
           </div>
 
-          <CheckListItem title="یک روز قبل از سررسید به من یادآوری شود" name="bbb" />
+          <CheckListItem
+            title="یک روز قبل از سررسید به من یادآوری شود"
+            name="bbb"
+          />
         </div>
       </div>
 
@@ -182,7 +185,7 @@ export default function TaskForm() {
             />
 
             <div className="mt-3 flex flex-col gap-2">
-              <CheckListItem title="طراحی UI" name="aaa"/>
+              <CheckListItem title="طراحی UI" name="aaa" />
             </div>
           </div>
 
