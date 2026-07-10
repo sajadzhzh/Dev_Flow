@@ -1,5 +1,5 @@
-import Button from "@/Components/ui/Button";
-import SelectBox from "@/Components/ui/Select";
+import Button from "@/Components/ui/Input/Button";
+import SelectBox from "@/Components/ui/Input/Select";
 import ActivityRow from "./ACtivityItem";
 
 export default function ProjectDetailsActivity() {

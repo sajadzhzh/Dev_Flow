@@ -5,13 +5,19 @@ import Link from "next/link";
 import Logo from "@/public/logo.png";
 import Profile from "@/public/Profile.png";
 import SearchHeader from "@/Components/Layout/SearchHeader";
-import Button from "@/Components/ui/Button";
+import Button from "@/Components/ui/Input/Button";
 import { Bell, ChevronDown, Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { hiddenMenu } from "@/Lib/Helper/Events";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const { data: session } = useSession();
+  const router = useRouter();
+
+  const pushRoute = (route: string) => {
+    router.push(route);
+  };
 
   return (
     <div className="w-full py-3 px-6 flex justify-between items-center">
@@ -39,9 +45,12 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-5">
-        <Button style="cursor-pointer relative">
+        <Button
+          onClick={() => pushRoute("/dashboard/notification")}
+          style="cursor-pointer relative"
+        >
           <Bell />
-          <div className="px-1.5 pt-0.5 rounded-full text-small absolute -top-3 -right-2 bg-blue-700">
+          <div className="px-1.5 pt-0.5 rounded-full text-small absolute -top-3 -right-2 bg-[#3B82F6]">
             2
           </div>
         </Button>

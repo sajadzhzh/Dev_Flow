@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/Components/ui/Button";
-import SelectBox from "@/Components/ui/Select";
+import Button from "@/Components/ui/Input/Button";
+import SelectBox from "@/Components/ui/Input/Select";
 import { X } from "lucide-react";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";

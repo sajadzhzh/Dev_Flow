@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/Components/ui/Button";
+import Button from "@/Components/ui/Input/Button";
 import { Activity, Folder, LayoutGrid, SquareCheck, Users } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";

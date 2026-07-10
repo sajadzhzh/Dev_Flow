@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/Components/ui/Button";
+import Button from "@/Components/ui/Input/Button";
 import { EllipsisVertical } from "lucide-react";
 import Link from "next/link";
 import {

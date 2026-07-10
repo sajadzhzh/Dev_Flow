@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/Components/ui/Button";
+import Button from "@/Components/ui/Input/Button";
 import { hiddenMenu } from "@/Lib/Helper/Events";
 import { X } from "lucide-react";
 import { useSession } from "next-auth/react";

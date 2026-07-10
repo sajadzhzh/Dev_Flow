@@ -1,6 +1,6 @@
 import SearchItems from "@/Components/Layout/Search";
-import Button from "@/Components/ui/Button";
-import SelectBox from "@/Components/ui/Select";
+import Button from "@/Components/ui/Input/Button";
+import SelectBox from "@/Components/ui/Input/Select";
 import Card from "@/Components/ui/SmallCard";
 import { Brush, CodeXml, Plus, User, Users, UserStar } from "lucide-react";
 import UserRow from "./UserItem";

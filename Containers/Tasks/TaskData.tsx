@@ -2,7 +2,7 @@ import Profile from "@/public/Profile.png";
 import Image from "next/image";
 import FileItem from "@/Components/Layout/FileItem";
 import CheckListItem from "@/Components/ui/CheckList/Item";
-import Button from "@/Components/ui/Button";
+import Button from "@/Components/ui/Input/Button";
 import { Plus } from "lucide-react";
 
 export default function TaskData() {

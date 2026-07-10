@@ -1,4 +1,4 @@
-import SelectBox from "@/Components/ui/Select";
+import SelectBox from "@/Components/ui/Input/Select";
 import Card from "@/Components/ui/SmallCard";
 import TaskRow from "@/Containers/Projects/Details/Tasks/TaskItem";
 import {
