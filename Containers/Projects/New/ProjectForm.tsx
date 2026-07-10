@@ -8,12 +8,18 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import CheckListItem from "@/Components/ui/CheckList/Item";
 import Link from "next/link";
+import InputFile from "@/Components/ui/Input/file";
+import { useState } from "react";
+import { Priority } from "@/Components/ui/PriorityCard";
+import PrioritySelector from "@/Components/ui/PriorityCard";
 
 export default function ProjectForm() {
+  const [priority, setPriority] = useState<Priority>("medium");
+
   return (
     <form className="w-full flex flex-col lg:flex-row gap-3">
-      <div className="lg:w-1/4 flex flex-col gap-3">
-        <div className="w-full flex flex-col gap-3 bg-[#18181b] py-3 px-4 border border-gray-600 rounded-xl">
+      <div className="lg:w-1/4 flex flex-col gap-3 grow">
+        <div className="w-full grow flex flex-col gap-3 bg-[#18181b] py-3 px-4 border border-gray-600 rounded-xl">
           <h3>اطلاعات مدیر پروژه</h3>
           <div>
             <label htmlFor="projectBoss" className="text-[13px]">
@@ -59,7 +65,7 @@ export default function ProjectForm() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-3 bg-[#18181b] py-3 px-4 border border-gray-600 rounded-xl">
+        <div className="w-full grow flex flex-col gap-3 bg-[#18181b] py-3 px-4 border border-gray-600 rounded-xl">
           <h3>تاریخ ها</h3>
           <div className="flex flex-col gap-1">
             <label htmlFor="startDate" className="text-[13px]">
@@ -90,7 +96,7 @@ export default function ProjectForm() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-3 bg-[#18181b] py-3 px-4 border border-gray-600 rounded-xl">
+        <div className="w-full grow flex flex-col gap-3 bg-[#18181b] py-3 px-4 border border-gray-600 rounded-xl">
           <h3>تنظیمات پروژه</h3>
 
           <div>
@@ -116,7 +122,8 @@ export default function ProjectForm() {
           />
         </div>
       </div>
-      <div className="lg:w-3/4 flex flex-col gap-3 bg-[#18181b] py-2 px-4 border border-gray-600 rounded-xl">
+
+      <div className="lg:w-3/4 grow flex flex-col gap-2 bg-[#18181b] py-2 px-4 border border-gray-600 rounded-xl">
         <h3>اطلاعات اصلی</h3>
 
         <div className="flex flex-col gap-3 w-full">
@@ -130,16 +137,31 @@ export default function ProjectForm() {
           />
         </div>
 
-        <div className="w-full flex gap-3">
+        <div className="flex flex-col gap-3 w-full">
+          <label htmlFor="projectDetails">توضیحات پروژه</label>
+          <textarea
+            rows={5}
+            name="projectDetails"
+            id="projectDetails"
+            className="w-full outline-0 border border-gray-800 py-2 ps-4 rounded-xl focus:border-gray-400 placeholder:text-gray-500"
+            placeholder="توضیحات پروژه را وارد کنید"
+          />
+        </div>
+
+        <InputFile />
+
+        <PrioritySelector onChange={setPriority} value={priority} />
+
+        <div className="w-full flex gap-3 my-auto">
           <Button
             type="submit"
-            style="grow h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
+            style="w-1/2 h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
           >
             ثبت
           </Button>
           <Link
             href="/dashboard/projects"
-            className="grow h-max py-2 px-4 text-center bg-[#28282b] text-white rounded-xl cursor-pointer hover:bg-[#38383b]"
+            className="w-1/2 h-max py-2 px-4 text-center bg-[#28282b] text-white rounded-xl cursor-pointer hover:bg-[#38383b]"
           >
             انصراف
           </Link>

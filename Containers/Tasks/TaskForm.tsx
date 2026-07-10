@@ -6,8 +6,8 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import Button from "@/Components/ui/Button";
 import Link from "next/link";
-import { Paperclip } from "lucide-react";
 import CheckListItem from "@/Components/ui/CheckList/Item";
+import InputFile from "@/Components/ui/Input/file";
 
 export default function TaskForm() {
   const id = 1;
@@ -146,32 +146,7 @@ export default function TaskForm() {
             />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="text-[13px]">پیوست فایل</label>
-
-            <label
-              htmlFor="attachments"
-              className="group flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-gray-600 bg-[#18181B] py-8 transition-all hover:border-[#3B82F6] hover:bg-[#202024]"
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#3b83f633] text-[#3B82F6] group-hover:scale-105 transition">
-                <Paperclip className="size-6" />
-              </div>
-
-              <div className="text-center">
-                <p className="font-medium">فایل را اینجا رها کنید</p>
-
-                <p className="mt-1 text-sm text-gray-500">
-                  یا برای انتخاب فایل کلیک کنید
-                </p>
-
-                <p className="mt-2 text-xs text-gray-600">
-                  PNG, JPG, PDF, ZIP تا ۱۰ مگابایت
-                </p>
-              </div>
-
-              <input id="attachments" type="file" multiple className="hidden" />
-            </label>
-          </div>
+          <InputFile />
 
           <div className="w-full flex flex-col gap-2">
             <label htmlFor="checkList" className="text-[13px]">
