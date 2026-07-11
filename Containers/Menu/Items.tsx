@@ -20,7 +20,7 @@ export default function MenuItems(){
             <SquareCheck />
             تسک‌های من
           </Link>
-          <Link href="" className="p-2 flex gap-2 items-center rounded-xl">
+          <Link href="/dashboard/calendar" className={path.startsWith("/dashboard/calendar")? "p-2 flex gap-2 items-center rounded-xl menu-item-active" : "p-2 flex gap-2 items-center rounded-xl"}>
             <Calendar />
             تقویم
           </Link>

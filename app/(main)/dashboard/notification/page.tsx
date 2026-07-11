@@ -1,6 +1,6 @@
 import Button from "@/Components/ui/Input/Button";
 import SelectBox from "@/Components/ui/Input/Select";
-import { Bell, Check, Trash2 } from "lucide-react";
+import { Bell, Box, Check, Trash2 } from "lucide-react";
 
 export default function NotificationPage() {
   return (
@@ -59,6 +59,17 @@ export default function NotificationPage() {
             name="type"
             values={["همه", "خوانده نشده", "تسک ها", "پروژه ها", "یادآوری", "سیستم", "امنیتی"]}
             />
+        </div>
+      </div>
+
+      <div className="w-full bg-[#18181b] border border-gray-600 py-3 px-5 rounded-xl flex flex-col items-center lg:flex-row gap-3">
+        <div className="bg-[#8a5cf65b] text-[#8B5CF6] p-4 rounded">
+          <Box />
+        </div>
+
+        <div>
+          <h3 className="text-xl">یک تسک جدید به شما اختصاص داده شد</h3>
+          <p className="text-[13px] text-gray-500">تسک طراحی صفحه لاگین توسط امیر محمدی به شما اختصاص داده شد</p>
         </div>
       </div>
     </div>
