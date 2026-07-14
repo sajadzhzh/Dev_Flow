@@ -1,0 +1,40 @@
+import { CalendarEvent } from "./calendar.types";
+
+export const calendarEvents: CalendarEvent[] = [
+  {
+    id: 1,
+    title: "طراحی UI",
+    projectId: 1,
+    projectName: "هم افزا",
+    year: 1405,
+    month: 4,
+    day: 23,
+    time: "10:30",
+    priority: "critical",
+    status: "inProccess",
+  },
+  {
+    id: 2,
+    title: "تست API",
+    projectId: 1,
+    projectName: "هم افزا",
+    year: 1405,
+    month: 4,
+    day: 23,
+    time: "14:00",
+    priority: "high",
+    status: "waiting",
+  },
+  {
+    id: 3,
+    title: "جلسه تیم",
+    projectId: 2,
+    projectName: "سایت فروشگاهی",
+    year: 1405,
+    month: 4,
+    day: 25,
+    time: "09:00",
+    priority: "medium",
+    status: "done",
+  },
+];
