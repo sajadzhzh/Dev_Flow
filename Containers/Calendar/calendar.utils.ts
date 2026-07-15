@@ -162,3 +162,18 @@ export function getMonthName(month: number): string {
 
   return months[month - 1];
 }
+
+export const CalendarDaysMonth = [
+  "فروردین",
+  "اردیبهشت",
+  "خرداد",
+  "تیر",
+  "مرداد",
+  "شهریور",
+  "مهر",
+  "آبان",
+  "آذر",
+  "دی",
+  "بهمن",
+  "اسفند",
+];
