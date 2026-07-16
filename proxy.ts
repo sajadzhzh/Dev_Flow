@@ -13,8 +13,5 @@ export default auth((req) => {
 export const config = {
   matcher: [
     "/dashboard/:path*",
-    "/workspace/:path*",
-    "/project/:path*",
-    "/settings/:path*",
   ],
 };

@@ -18,7 +18,7 @@ export default function LoginForm() {
         break;
       case "success":
         toast.success(state.message);
-        setInterval(() => {
+        setTimeout(() => {
           router.push("/dashboard");
         }, 2000);
         break;

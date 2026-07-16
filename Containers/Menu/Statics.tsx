@@ -8,7 +8,7 @@ export default function MenuStatics(){
             <Settings />
             تنظیمات
           </Link>
-          <Link href="" className="p-2 flex gap-2 items-center rounded-xl">
+          <Link href="/dashboard/profile" className="p-2 flex gap-2 items-center rounded-xl">
             <User />
             پروفایل
           </Link>

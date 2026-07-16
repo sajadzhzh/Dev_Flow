@@ -20,7 +20,7 @@ export default function RegisterForm() {
         break;
       case "success":
         toast.success(state.message);
-        setInterval(() => {
+        setTimeout(() => {
           router.push("/auth");
         }, 2000);
         break;

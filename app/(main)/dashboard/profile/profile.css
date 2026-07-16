@@ -1,0 +1,9 @@
+.userCard-gradiant {
+  background: linear-gradient(
+    165deg,
+    #8a5cf68e 0%,
+    rgba(99, 101, 241, 0) 45%,
+    rgba(59, 131, 246, 0) 75%,
+    rgba(6, 181, 212, 0) 100%
+  );
+}
