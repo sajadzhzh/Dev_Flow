@@ -1,3 +1,4 @@
+import SettingsModifier from "@/Containers/Settings/SettingsModifier";
 import SettingsTabs from "@/Containers/Settings/Tabs";
 import { Settings } from "lucide-react";
 
@@ -18,7 +19,9 @@ export default function SettingsPage() {
         <div className="w-full lg:w-1/3 xl:w-1/4 py-3 px-4 bg-[#18181b] border border-gray-600 rounded-xl">
             <SettingsTabs />
         </div>
-        <div className="w-full lg:w-2/3 xl:w-3/4 py-2 px-4 bg-[#18181b] border border-gray-600 rounded-xl"></div>
+        <div className="w-full lg:w-2/3 xl:w-3/4 py-2 px-4 bg-[#18181b] border border-gray-600 rounded-xl">
+            <SettingsModifier />
+        </div>
       </div>
     </div>
   );
