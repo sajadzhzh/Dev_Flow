@@ -15,7 +15,6 @@ import { useCallback } from "react";
 const tabs = [
   { title: "اطلاعات حساب", value: null, icon: User },
   { title: "امنیت", value: "security", icon: ShieldCheck },
-  { title: "ظاهر", value: "styles", icon: Palette },
   { title: "اعلان ها", value: "notifications", icon: Bell },
   { title: "درباره برنامه", value: "info", icon: Info },
 ];

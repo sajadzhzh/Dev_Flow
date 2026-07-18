@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import AccountSettings from "./Views/Account";
+import AccountSecurity from "./Views/Security";
 
 export default function SettingsModifier(){
     const searchParams = useSearchParams();
@@ -9,9 +10,7 @@ export default function SettingsModifier(){
     
       switch (view) {
         case "security":
-          return "<ProjectDetailsTasks />;"
-        case "styles":
-          return "<ProjectDetailsUsers />;"
+          return <AccountSecurity />
         case "notifications":
           return "<ProjectDetailsFiles />;"
         case "info":
