@@ -1,10 +1,7 @@
 "use client";
 
 import {
-  Bell,
-  CalendarCog,
   Info,
-  Palette,
   ShieldCheck,
   User,
 } from "lucide-react";
@@ -15,7 +12,6 @@ import { useCallback } from "react";
 const tabs = [
   { title: "اطلاعات حساب", value: null, icon: User },
   { title: "امنیت", value: "security", icon: ShieldCheck },
-  { title: "اعلان ها", value: "notifications", icon: Bell },
   { title: "درباره برنامه", value: "info", icon: Info },
 ];
 
