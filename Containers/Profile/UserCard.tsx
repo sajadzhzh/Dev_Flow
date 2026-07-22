@@ -48,7 +48,7 @@ export default function UserCard() {
         </div>
 
         <Link
-          href=""
+          href="/dashboard/settings"
           className="py-2 bg-[#8B5CF6] hover:bg-[#9a71fa] flex items-center justify-center gap-2 text-[14px] w-full lg:w-1/6 rounded ms-auto mb-auto"
         >
           <Pencil size={18} />
