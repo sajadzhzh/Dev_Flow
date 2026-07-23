@@ -20,11 +20,11 @@ export default function HiddenMenu() {
         className="w-0 h-full bg-[#0F0F14] z-50 py-8 px-3 overflow-x-hidden text-nowrap"
         id="hidden_menu"
       >
-        <Button style="cursor-pointer p-3 ps-0 mb-5" onClick={hiddenMenu}>
+        <Button className="cursor-pointer p-3 ps-0 mb-5" onClick={hiddenMenu}>
           <X />
         </Button>
 
-        <Button style="cursor-pointer mb-3 flex items-center gap-2 border border-gray-800 bg-[#27272760] rounded-xl p-2 w-full">
+        <Button className="cursor-pointer mb-3 flex items-center gap-2 border border-gray-800 bg-[#27272760] rounded-xl p-2 w-full">
           <Image
             src={Profile}
             alt="Profile"

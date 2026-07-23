@@ -3,6 +3,7 @@ import Logo from "@/public/logo.png";
 import ContactWays from "../ContactWays";
 import Link from "next/link";
 import { Heart, MessageSquare, TriangleAlert } from "lucide-react";
+import FeedBack from "../FeedBack/feedBack";
 
 export default function SettingsInfo() {
   return (
@@ -55,12 +56,7 @@ export default function SettingsInfo() {
             </p>
           </div>
 
-          <Link
-            href=""
-            className="py-2 bg-[#8a5cf660] text-[#8B5CF6] hover:text-white hover:bg-[#8B5CF6] flex items-center justify-center gap-2 text-[14px] w-full lg:w-1/6 rounded ms-auto mb-auto"
-          >
-            ثبت بازخورد
-          </Link>
+          <FeedBack />
         </div>
 
         <div className="w-full flex flex-col lg:flex-row flex-wrap justify-center gap-2">
