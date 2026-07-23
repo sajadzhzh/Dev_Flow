@@ -1,4 +1,4 @@
-import ProjectItem from "./ProjectItem";
+import ProjectItem from "./Item";
 
 export default function Projects() {
   return (
