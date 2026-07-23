@@ -52,7 +52,7 @@ export default function ProjectDetailsNavPanel({
                     : pathname,
                 )
               }
-              style={`active-project w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326]
+              className={`active-project w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326]
       ${active ? "project-subMenu-active" : ""}
       ${index === 0 ? "rounded-s-xl" : ""}
   ${index === tabs.length - 1 ? "rounded-e-xl" : ""}
@@ -80,7 +80,7 @@ export default function ProjectDetailsNavPanel({
                     : pathname,
                 )
               }
-              style={`done-project w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326]
+              className={`done-project w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326]
         ${active ? "project-subMenu-active" : ""}
         ${index === 0 ? "rounded-s-xl" : ""}
   ${index === tabs.length - 1 ? "rounded-e-xl" : ""}
@@ -108,7 +108,7 @@ export default function ProjectDetailsNavPanel({
                     : pathname,
                 )
               }
-              style={`suspend-project w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326]
+              className={`suspend-project w-1/5 text-sm py-2 flex flex-col lg:flex-row items-center justify-center gap-2 cursor-pointer hover:bg-[#232326]
       ${active ? "project-subMenu-active" : ""}
       ${index === 0 ? "rounded-s-xl" : ""}
       ${index === tabs.length - 1 ? "rounded-e-xl" : ""}

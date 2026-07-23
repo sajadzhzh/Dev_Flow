@@ -22,14 +22,14 @@ export default function CalendarHeader({
     <div className="flex justify-between items-center rounded-xl border border-white/10 bg-[#18181B] px-5 py-4">
       <div className="flex items-center gap-2">
         <Button
-          style="cursor-pointer rounded-lg border border-white/10 p-2 hover:bg-[#28282B]"
+          className="cursor-pointer rounded-lg border border-white/10 p-2 hover:bg-[#28282B]"
           onClick={onNext}
         >
           <ChevronRight size={18} />
         </Button>
 
         <Button
-          style="cursor-pointer rounded-lg border border-white/10 p-2 hover:bg-[#28282B]"
+          className="cursor-pointer rounded-lg border border-white/10 p-2 hover:bg-[#28282B]"
           onClick={onPrevious}
         >
           <ChevronLeft size={18} />
@@ -42,7 +42,7 @@ export default function CalendarHeader({
 
       <Button
         onClick={onToday}
-        style="cursor-pointer rounded-xl bg-[#3b83f633] px-4 py-2 text-[#3B82F6] hover:bg-[#3B82F6] hover:text-white"
+        className="cursor-pointer rounded-xl bg-[#3b83f633] px-4 py-2 text-[#3B82F6] hover:bg-[#3B82F6] hover:text-white"
       >
         امروز
       </Button>

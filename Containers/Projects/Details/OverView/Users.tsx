@@ -14,10 +14,10 @@ export default function ProjectUsers({
         <h3>اعضا</h3>
         {status === "active" && (
           <Link
-            href=""
+            href="/dashboard/projects/1?view=users"
             className="text-small flex items-center gap-2 py-1 px-3 border border-[#3B82F6] rounded text-[#3B82F6] hover:text-white hover:bg-[#3B82F6]"
           >
-            مشاهده از همه
+            مشاهده همه
           </Link>
         )}
         {status === "done" && (

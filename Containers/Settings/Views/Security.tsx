@@ -44,7 +44,7 @@ export default function AccountSecurity() {
 
         <Button
           type="submit"
-          style="lg:w-1/2 text-center py-2 bg-[#8a5cf65b] text-[#8B5CF6] hover:text-white hover:bg-[#8B5CF6] cursor-pointer rounded-xl"
+          className="lg:w-1/2 text-center py-2 bg-[#8a5cf65b] text-[#8B5CF6] hover:text-white hover:bg-[#8B5CF6] cursor-pointer rounded-xl"
         >
           تغییر رمز عبور
         </Button>
@@ -69,7 +69,7 @@ export default function AccountSecurity() {
           />
         </div>
 
-        <Button style="lg:w-1/2 flex items-center justify-center gap-2 py-2 bg-[#ef44444d] text-[#EF4444] hover:text-white hover:bg-[#EF4444] cursor-pointer rounded-xl">
+        <Button className="lg:w-1/2 flex items-center justify-center gap-2 py-2 bg-[#ef44444d] text-[#EF4444] hover:text-white hover:bg-[#EF4444] cursor-pointer rounded-xl">
           <LogOut />
           خروج از همه دستگاه های دیگر
         </Button>

@@ -2,17 +2,17 @@ import { MouseEventHandler, ReactNode } from "react";
 
 export default function Button({
   children,
-  style,
+  className,
   type = "button",
   onClick,
 }: {
   children: ReactNode;
-  style: string;
+  className: string;
   type?: "submit" | "reset" | "button";
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
-    <button className={style} type={type} onClick={onClick}>
+    <button className={className} type={type} onClick={onClick}>
       {children}
     </button>
   );

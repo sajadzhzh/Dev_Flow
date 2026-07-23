@@ -56,7 +56,7 @@ export default function AccountSettings() {
           />
         </div>
 
-        <Button type="submit" style="lg:w-1/2 text-center py-2 bg-[#8a5cf65b] text-[#8B5CF6] hover:text-white hover:bg-[#8B5CF6] cursor-pointer rounded-xl">
+        <Button type="submit" className="lg:w-1/2 text-center py-2 bg-[#8a5cf65b] text-[#8B5CF6] hover:text-white hover:bg-[#8B5CF6] cursor-pointer rounded-xl">
             ذخیره تغییرات
         </Button>
       </form>

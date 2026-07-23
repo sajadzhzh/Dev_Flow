@@ -167,7 +167,7 @@ export default function TaskForm() {
           <div className="w-full flex gap-3">
             <Button
               type="submit"
-              style="grow h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
+              className="grow h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
             >
               ذخیره
             </Button>

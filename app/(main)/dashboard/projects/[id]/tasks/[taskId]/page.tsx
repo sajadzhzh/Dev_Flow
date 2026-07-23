@@ -59,7 +59,7 @@ export default async function TasksDetails({
 
               <div className="flex items-center gap-1">
                 <DropdownMenu items={menus} buttonClassName="py-1.5 px-1.5" />
-                <Button style="p-1.5 border border-[#EF4444] rounded-xl text-[#EF4444] cursor-pointer hover:bg-[#ef44444d]">
+                <Button className="p-1.5 border border-[#EF4444] rounded-xl text-[#EF4444] cursor-pointer hover:bg-[#ef44444d]">
                   <Trash2 size={20} />
                 </Button>
                 <Link

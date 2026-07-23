@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <div className="w-full py-3 px-6 flex justify-between items-center">
       <Button
-        style="cursor-pointer relative block lg:hidden"
+        className="cursor-pointer relative block lg:hidden"
         onClick={hiddenMenu}
       >
         <Menu />
@@ -47,7 +47,7 @@ export default function Header() {
       <div className="flex items-center gap-5">
         <Button
           onClick={() => pushRoute("/dashboard/notification")}
-          style="cursor-pointer relative"
+          className="cursor-pointer relative"
         >
           <Bell />
           <div className="px-1.5 pt-0.5 rounded-full text-small absolute -top-3 -right-2 bg-[#3B82F6]">
@@ -57,7 +57,7 @@ export default function Header() {
 
         <div className="border-s hidden lg:block border-gray-800 h-8"></div>
 
-        <Button style="cursor-pointer hidden lg:flex items-center gap-2 hover:bg-white/25 rounded-full">
+        <Button className="cursor-pointer hidden lg:flex items-center gap-2 hover:bg-white/25 rounded-full">
           <ChevronDown />
           {session?.user?.name}
           <Image

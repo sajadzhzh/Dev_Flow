@@ -61,7 +61,7 @@ export default function TaskData() {
         <CheckListItem name="ccc" title="طراحی UI" />
         <CheckListItem name="ddd" title="طراحی UI" />
 
-        <Button style="w-full py-1 border border-gray-600 rounded-xl text-[#3B82F6] flex items-center justify-center cursor-pointer hover:bg-[#3b83f665]">
+        <Button className="w-full py-1 border border-gray-600 rounded-xl text-[#3B82F6] flex items-center justify-center cursor-pointer hover:bg-[#3b83f665]">
           <Plus />
           افزودن آیتم جدید
         </Button>
@@ -89,7 +89,7 @@ export default function TaskData() {
               placeholder="نظر خود را بنویسید"
               className="lg:w-3/4 border border-gray-800 py-1 ps-4 rounded-xl focus:border-gray-400 placeholder:text-gray-500"
             />
-            <Button style="lg:w-1/4 flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl w-full h-full py-2">
+            <Button className="lg:w-1/4 flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl w-full h-full py-2">
               ارسال
             </Button>
           </form>

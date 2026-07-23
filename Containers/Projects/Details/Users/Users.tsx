@@ -27,7 +27,7 @@ export default function ProjectDetailsUsers() {
           <div className="lg:w-1/2">
             <SearchItems name="searchUsers" placeholder="جستجو در اعضا" />
           </div>
-          <Button style="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl p-2">
+          <Button className="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl p-2">
             <Plus />
             دعوت عضو جدید
           </Button>
