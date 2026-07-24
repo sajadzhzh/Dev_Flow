@@ -5,14 +5,16 @@ export default function SelectBox({
   id,
   values,
   smallY,
+  wFull,
 }: {
   name: string;
   id: string;
   values: string[];
   smallY?: boolean;
+  wFull?: boolean;
 }) {
   return (
-    <div className="relative w-full xl:w-52">
+    <div className={`relative w-full ${wFull ? "w-full" : "xl:w-52"}`}>
       <select
         className={`
           peer

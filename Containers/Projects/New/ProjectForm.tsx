@@ -59,7 +59,7 @@ export default function ProjectForm() {
 
           <div className="flex justify-between items-center xl:w-52 rounded-xl py-1 px-3 bg-gray-500/50 ">
             sajad
-            <Button style="cursor-pointer hover:text-red-500">
+            <Button className="cursor-pointer hover:text-red-500">
               <X />
             </Button>
           </div>
@@ -155,7 +155,7 @@ export default function ProjectForm() {
         <div className="w-full flex gap-3 my-auto">
           <Button
             type="submit"
-            style="w-1/2 h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
+            className="w-1/2 h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
           >
             ثبت
           </Button>
