@@ -6,7 +6,7 @@ import Profile2 from "@/public/smoke.png";
 
 export default function Mobile(){
     return(
-        <Link href="" className="flex gap-4 flex-col xl:hidden">
+        <Link href="/dashboard/projects/1" className="flex gap-4 flex-col xl:hidden">
         <div className="w-full flex gap-2 items-center">
           <div className="p-3 bg-[#3b83f662] text-[#3B82F6] rounded-2xl">
             <Box />

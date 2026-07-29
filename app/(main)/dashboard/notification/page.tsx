@@ -17,11 +17,11 @@ export default function NotificationPage() {
         </div>
 
         <div className="flex flex-col lg:flex-row grow items-center gap-2">
-          <Button style="w-full lg:w-1/2 flex items-center justify-center gap-2 py-2 rounded cursor-pointer bg-[#18181b] hover:bg-[#28282b]">
+          <Button className="w-full lg:w-1/2 flex items-center justify-center gap-2 py-2 rounded cursor-pointer bg-[#18181b] hover:bg-[#28282b]">
             <Check />
             خواندن همه
           </Button>
-          <Button style="w-full lg:w-1/2 flex items-center justify-center gap-2 py-2 rounded cursor-pointer bg-[#8a5cf65b] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white">
+          <Button className="w-full lg:w-1/2 flex items-center justify-center gap-2 py-2 rounded cursor-pointer bg-[#8a5cf65b] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white">
             <Trash2 />
             پاک کردن خوانده شده ها
           </Button>
@@ -30,25 +30,25 @@ export default function NotificationPage() {
 
       <div className="w-full flex flex-col lg:flex-row gap-3 justify-between">
         <div className="hidden w-full lg:flex gap-0.5 bg-gray-600 rounded border border-gray-600">
-          <Button style="flex items-center justify-center cursor-pointer bg-[#3B82F6] text-white rounded p-2 w-1/7">
+          <Button className="flex items-center justify-center cursor-pointer bg-[#3B82F6] text-white rounded p-2 w-1/7">
             همه
           </Button>
-          <Button style="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
+          <Button className="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
             خوانده نشده
           </Button>
-          <Button style="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
+          <Button className="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
             تسک ها
           </Button>
-          <Button style="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
+          <Button className="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
             پروژه ها
           </Button>
-          <Button style="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
+          <Button className="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
             یادآوری
           </Button>
-          <Button style="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
+          <Button className="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
             سیستم
           </Button>
-          <Button style="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
+          <Button className="flex items-center justify-center bg-[#18181B] text-white cursor-pointer hover:bg-[#3b83f665] rounded p-2 w-1/7">
             امنیتی
           </Button>
         </div>

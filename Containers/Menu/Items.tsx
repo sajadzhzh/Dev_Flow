@@ -24,7 +24,7 @@ export default function MenuItems(){
             <Calendar />
             تقویم
           </Link>
-          <Link href="" className="p-2 flex gap-2 items-center rounded-xl">
+          <Link href="/dashboard/team" className={path.startsWith("/dashboard/team")? "p-2 flex gap-2 items-center rounded-xl menu-item-active" : "p-2 flex gap-2 items-center rounded-xl"}>
             <Users />
             تیم
           </Link>
