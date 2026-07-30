@@ -65,7 +65,7 @@ export default function EventPanel({
 
           {events.map((event) => (
             <Link
-              href={`/dashboard/tasks/${event.id}`}
+              href={`/dashboard/projects/1/tasks/${event.id}`}
               key={event.id}
               className="group rounded-xl border border-white/10 bg-[#202024] p-4 transition hover:border-[#3B82F6] hover:bg-[#252529]"
             >

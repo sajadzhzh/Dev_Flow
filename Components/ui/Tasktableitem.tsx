@@ -1,5 +1,24 @@
 import { Activity } from "lucide-react";
 
+const variants = {
+  high: {
+    bg: "bg-[#3b83f665]",
+    text: "text-[#3B82F6]",
+  },
+  low: {
+    bg: "bg-[#22c55e4d]",
+    text: "text-[#22C55E]",
+  },
+  critical: {
+    bg: "bg-[#8a5cf65b]",
+    text: "text-[#8B5CF6]",
+  },
+  mid: {
+    bg: "bg-[#f59f0b5b]",
+    text: "text-[#F59E0B]",
+  },
+};
+
 export default function TaskTableItem({
   name,
   priority,
@@ -7,29 +26,13 @@ export default function TaskTableItem({
   name: string;
   priority: "critical" | "high" | "mid" | "low";
 }) {
+  const variant = variants[priority];
   return (
     <div className="flex items-center justify-between gap-2 my-2 flex-wrap">
       <div className="flex gap-4">
-        {priority === "critical" && (
-            <div className="p-3 bg-[#8a5cf65b] text-[#8B5CF6] rounded-2xl">
-              <Activity />
-            </div>
-          )}
-          {priority === "high" && (
-            <div className="p-3 bg-[#3b83f662] text-[#3B82F6] rounded-2xl">
-              <Activity />
-            </div>
-          )}
-          {priority === "mid" && (
-            <div className="p-3 bg-[#f59f0b62] text-[#F59E0B] rounded-2xl">
-              <Activity />
-            </div>
-          )}
-          {priority === "low" && (
-            <div className="p-3 bg-[#22c55e62] text-[#22C55E] rounded-2xl">
-              <Activity />
-            </div>
-          )}
+        <div className={`p-3 ${variant.bg} ${variant.text} rounded-2xl`}>
+          <Activity />
+        </div>
         <div className="flex flex-col flex-wrap justify-center text-sm lg:text-md">
           <p className="max-w-80">{name}</p>
         </div>

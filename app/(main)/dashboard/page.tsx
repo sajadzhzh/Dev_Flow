@@ -60,7 +60,7 @@ export default function DashboardPage() {
           <div className="w-full flex justify-between items-center text-sm text-gray-400 mb-4">
             فعالیت های اخیر
             <Link
-              href=""
+              href="/dashboard/notification"
               className="p-1 px-2 rounded-xl bg-white/25 hover:bg-white/50 hover:text-gray-900"
             >
               مشاهده همه فعالیت ها

@@ -10,9 +10,12 @@ import { Bell, ChevronDown, Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { hiddenMenu } from "@/Lib/Helper/Events";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import HiddenMenu from "./Menu/Hidden";
 
 export default function Header() {
   const { data: session } = useSession();
+  const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
   const pushRoute = (route: string) => {
@@ -23,10 +26,12 @@ export default function Header() {
     <div className="w-full py-3 px-6 flex justify-between items-center">
       <Button
         className="cursor-pointer relative block lg:hidden"
-        onClick={hiddenMenu}
+        onClick={() => setMenuOpen(true)}
       >
         <Menu />
       </Button>
+
+      <HiddenMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <Link href="/dashboard" className="flex items-center gap-2 text-xl">
         <Image
