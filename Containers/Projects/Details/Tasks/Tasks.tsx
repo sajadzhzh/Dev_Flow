@@ -2,8 +2,8 @@ import SearchItems from "@/Components/Layout/Search";
 import SelectBox from "@/Components/ui/Input/Select";
 import Card from "@/Components/ui/SmallCard";
 import { List, Plus } from "lucide-react";
-import TaskRow from "./TaskItem";
 import Link from "next/link";
+import TaskRow from "./Item";
 
 export default function ProjectDetailsTasks() {
   return (
@@ -72,28 +72,24 @@ export default function ProjectDetailsTasks() {
         <div className="flex flex-col gap-2 p-2 h-57 overflow-y-scroll scrollbar-none z-0">
           <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
-            owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
             Status="done"
           />
           <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
-            owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
             Status="inProccess"
           />
           <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
-            owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
             Status="suspend"
           />
           <TaskRow 
             title={"تحقیق و تحلیل نیازمندی ها"}
-            owner="sajadzhzh"
             date="1405/05/05"
             priority="حیاتی"
             Status="waiting"

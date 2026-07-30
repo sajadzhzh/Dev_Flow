@@ -21,7 +21,7 @@ export default function EventPanel({
 }: EventPanelProps) {
   if (!day) {
     return (
-      <div className="bg-[#18181B] border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-[420px]">
+      <div className="bg-[#18181B] border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-120">
         <Calendar className="size-14 text-gray-600" />
 
         <h3 className="mt-4 text-lg font-semibold">
@@ -36,7 +36,7 @@ export default function EventPanel({
   }
 
   return (
-    <div className="bg-[#18181B] border border-white/10 rounded-xl p-5 min-h-[420px]">
+    <div className="bg-[#18181B] border border-white/10 rounded-xl p-5 min-h-120">
 
       <div className="border-b border-white/10 pb-4">
         <h2 className="text-xl font-bold">

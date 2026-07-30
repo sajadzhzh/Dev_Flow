@@ -1,6 +1,6 @@
 import SelectBox from "@/Components/ui/Input/Select";
 import Card from "@/Components/ui/SmallCard";
-import TaskRow from "@/Containers/Projects/Details/Tasks/TaskItem";
+import TaskRow from "@/Containers/Projects/Details/Tasks/Item";
 import {
   Calendar,
   Clock,
@@ -81,8 +81,7 @@ export default function TasksPage() {
           <TaskRow
             title={"تحقیق و تحلیل نیازمندی ها"}
             project="هم افزا"
-            myTasks={true}
-            owner="sajadzhzh"
+            myTask={true}
             date="1405/05/05"
             priority="حیاتی"
             Status="inProccess"
