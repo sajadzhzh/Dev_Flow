@@ -52,18 +52,17 @@ export default function Header() {
       <div className="flex items-center gap-5">
         <Button
           onClick={() => pushRoute("/dashboard/notification")}
-          className="cursor-pointer relative"
+          className="cursor-pointer relative hover:text-[#3B82F6]"
         >
           <Bell />
-          <div className="px-1.5 pt-0.5 rounded-full text-small absolute -top-3 -right-2 bg-[#3B82F6]">
+          <div className="text-white px-1.5 pt-0.5 rounded-full text-small absolute -top-3 -right-2 bg-[#3B82F6]">
             2
           </div>
         </Button>
 
         <div className="border-s hidden lg:block border-gray-800 h-8"></div>
 
-        <Button className="cursor-pointer hidden lg:flex items-center gap-2 hover:bg-white/25 rounded-full">
-          <ChevronDown />
+        <Link href="/dashboard/profile" className="hidden lg:flex ps-3 items-center gap-2 hover:bg-white/25 rounded-full">
           {session?.user?.name}
           <Image
             src={Profile}
@@ -73,7 +72,7 @@ export default function Header() {
             loading="eager"
             className="size-10 rounded-full"
           />
-        </Button>
+        </Link>
       </div>
     </div>
   );

@@ -4,17 +4,17 @@ import { Eye, Pen, Trash2 } from "lucide-react";
 
 interface ActionsProps {
   onDelete: () => void;
-  onEdit: () => void;
+  onEdit: string;
 }
 
 export default function TaskActions({ onDelete, onEdit }: ActionsProps) {
   return (
     <ActionMenu>
-      <ActionMenuItem  href="/dashboard/projects/1/tasks/1">
+      <ActionMenuItem href="/dashboard/projects/1/tasks/1">
         <Eye size={16} />
         مشاهده جزئیات
       </ActionMenuItem>
-      <ActionMenuItem  onClick={onEdit}>
+      <ActionMenuItem href={onEdit}>
         <Pen size={16} />
         ویرایش
       </ActionMenuItem>

@@ -4,6 +4,7 @@ import SelectBox from "@/Components/ui/Input/Select";
 import Card from "@/Components/ui/SmallCard";
 import { Brush, CodeXml, Plus, User, Users, UserStar } from "lucide-react";
 import UserRow from "./UserItem";
+import InviteModal from "./Modal";
 
 export default function ProjectDetailsUsers() {
   return (
@@ -27,10 +28,7 @@ export default function ProjectDetailsUsers() {
           <div className="lg:w-1/2">
             <SearchItems name="searchUsers" placeholder="جستجو در اعضا" />
           </div>
-          <Button className="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl p-2">
-            <Plus />
-            دعوت عضو جدید
-          </Button>
+          <InviteModal />
         </div>
       </div>
 
@@ -52,26 +50,8 @@ export default function ProjectDetailsUsers() {
             status="active"
             menus={[
               {
-                title: "مشاهده جزئیات",
-                href: "/dashboard/projects/1",
-              },
-              {
-                title: "ویرایش",
-                onClick: () => console.log("edit"),
-              },
-              {
-                title: "مدیریت اعضا",
-                href: "/dashboard/projects/1?view=users",
-              },
-              {
-                title: "کپی لینک",
-                onClick: () => {
-                  navigator.clipboard.writeText(window.location.href);
-                },
-              },
-              {
-                dividerBefore: true,
-                title: "حذف پروژه",
+                dividerBefore: false,
+                title: "حذف عضو از پروژه",
                 danger: true,
                 onClick: () => {
                   console.log("delete");

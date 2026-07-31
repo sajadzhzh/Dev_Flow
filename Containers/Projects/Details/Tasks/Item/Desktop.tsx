@@ -42,7 +42,7 @@ interface TaskProps {
   priority?: "حیاتی" | "بالا" | "متوسط" | "پائین";
   date: string;
   Status: Status;
-  onEdit: () => void;
+  onEdit: string;
   onDelete: () => void;
 }
 

@@ -2,7 +2,6 @@
 
 import { ReactNode, useState } from "react";
 
-import Modal from "@/Components/ui/Modal";
 import Dialog from "@/Components/ui/Dialog";
 import TaskItemDesktop from "./Desktop";
 import TaskItemMobile from "./Mobile";
@@ -27,7 +26,6 @@ export default function TaskRow({
   myTask,
   project,
 }: TaskProps) {
-  const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   return (
@@ -36,7 +34,7 @@ export default function TaskRow({
         {!myTask && (
           <>
             <TaskItemDesktop
-              onEdit={() => setEditOpen(true)}
+              onEdit={"/dashboard/projects/1/tasks/1/edit"}
               onDelete={() => setDeleteOpen(true)}
               Status={Status}
               date={date}
@@ -45,7 +43,7 @@ export default function TaskRow({
             />
 
             <TaskItemMobile
-              onEdit={() => setEditOpen(true)}
+              onEdit={"/dashboard/projects/1/tasks/1/edit"}
               onDelete={() => setDeleteOpen(true)}
               Status={Status}
               date={date}
@@ -56,7 +54,7 @@ export default function TaskRow({
 
         {myTask && (
           <TaskItemMyTasks
-            onEdit={() => setEditOpen(true)}
+            onEdit={"/dashboard/projects/1/tasks/1/edit"}
             onDelete={() => setDeleteOpen(true)}
             Status={Status}
             date={date}
@@ -67,12 +65,6 @@ export default function TaskRow({
         )}
       </div>
 
-      <Modal open={editOpen} onClose={() => setEditOpen(false)}>
-        <Modal.Header>ویرایش پروژه</Modal.Header>
-
-        <Modal.Body>Soon</Modal.Body>
-      </Modal>
-
       <Dialog
         open={deleteOpen}
         onClose={() => setDeleteOpen(false)}
@@ -80,7 +72,7 @@ export default function TaskRow({
           console.log("Delete");
           setDeleteOpen(false);
         }}
-        title="حذف پروژه"
+        title="حذف تسک"
         description="آیا مطمئن هستید؟"
         variant="danger"
       />

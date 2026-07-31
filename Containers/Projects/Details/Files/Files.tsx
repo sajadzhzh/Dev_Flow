@@ -1,8 +1,7 @@
 import SearchItems from "@/Components/Layout/Search";
-import Button from "@/Components/ui/Input/Button";
 import SelectBox from "@/Components/ui/Input/Select";
-import { Plus } from "lucide-react";
 import FileRow from "./FileItem";
+import FileModal from "./Modal";
 
 export default function ProjectDetailsFiles() {
   return (
@@ -33,10 +32,7 @@ export default function ProjectDetailsFiles() {
           <div className="lg:w-2/3">
             <SearchItems name="SearchFiles" placeholder="جستجو در فایل ها" />
           </div>
-          <Button className="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl p-2 lg:w-1/3">
-            <Plus />
-            آپلود جدید
-          </Button>
+          <FileModal />
         </div>
       </div>
 

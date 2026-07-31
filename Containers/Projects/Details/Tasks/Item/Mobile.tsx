@@ -40,7 +40,7 @@ interface TaskProps {
   title: ReactNode;
   date: string;
   Status: Status;
-  onEdit: () => void;
+  onEdit: string;
   onDelete: () => void;
 }
 
