@@ -1,6 +1,6 @@
 import SearchItems from "@/Components/Layout/Search";
 import SelectBox from "@/Components/ui/Input/Select";
-import Card from "@/Components/ui/SmallCard";
+import Card from "@/Components/ui/Cards/SmallCard";
 import Projects from "@/Containers/Projects/Projects";
 import {
   Folder,

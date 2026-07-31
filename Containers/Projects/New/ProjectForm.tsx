@@ -10,8 +10,8 @@ import CheckListItem from "@/Components/ui/CheckList/Item";
 import Link from "next/link";
 import InputFile from "@/Components/ui/Input/file";
 import { useState } from "react";
-import { Priority } from "@/Components/ui/PriorityCard";
-import PrioritySelector from "@/Components/ui/PriorityCard";
+import { Priority } from "@/Components/ui/Cards/PriorityCard";
+import PrioritySelector from "@/Components/ui/Cards/PriorityCard";
 
 export default function ProjectForm() {
   const [priority, setPriority] = useState<Priority>("medium");

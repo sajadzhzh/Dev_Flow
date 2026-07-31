@@ -5,7 +5,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Priority } from "@/Containers/Calendar/calendar.types";
-import PrioritySelector from "@/Components/ui/PriorityCard";
+import PrioritySelector from "@/Components/ui/Cards/PriorityCard";
 import SelectBox from "@/Components/ui/Input/Select";
 import Button from "@/Components/ui/Input/Button";
 

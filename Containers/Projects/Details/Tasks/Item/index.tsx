@@ -69,7 +69,6 @@ export default function TaskRow({
         open={deleteOpen}
         onClose={() => setDeleteOpen(false)}
         onConfirm={() => {
-          console.log("Delete");
           setDeleteOpen(false);
         }}
         title="حذف تسک"

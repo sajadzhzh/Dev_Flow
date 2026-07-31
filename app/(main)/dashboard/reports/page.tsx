@@ -1,7 +1,7 @@
 import ActivityChart from "@/Components/Layout/ActivityChart";
-import CardItem from "@/Components/ui/CardItem";
-import Card from "@/Components/ui/SmallCard";
-import TaskTableItem from "@/Components/ui/TaskTableItem";
+import CardItem from "@/Components/ui/Cards/ProjectCardItem";
+import Card from "@/Components/ui/Cards/SmallCard";
+import TaskTableItem from "@/Components/ui/Tasks/TaskTableItem";
 import { ChartLine, Clock, Folders, SquareCheck } from "lucide-react";
 import Link from "next/link";
 

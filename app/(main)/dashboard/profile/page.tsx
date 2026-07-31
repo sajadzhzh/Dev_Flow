@@ -1,6 +1,6 @@
 import UserCard from "@/Containers/Profile/UserCard";
 import "./profile.css";
-import Card from "@/Components/ui/SmallCard";
+import Card from "@/Components/ui/Cards/SmallCard";
 import { Box, ChartLine, SquareCheck, Zap } from "lucide-react";
 import UserStatus from "@/Containers/Profile/UserStatus";
 

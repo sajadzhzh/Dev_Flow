@@ -1,4 +1,4 @@
-import DropdownMenu from "@/Components/ui/DropDownMenu";
+import DropdownMenu from "@/Components/ui/DropDown/DropDownMenu";
 import { Dot } from "lucide-react";
 import { ReactNode } from "react";
 

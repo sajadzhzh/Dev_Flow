@@ -1,10 +1,8 @@
 "use client";
 
-import SearchItems from "@/Components/Layout/Search";
 import Button from "@/Components/ui/Input/Button";
 import InputFile from "@/Components/ui/Input/file";
 import Modal from "@/Components/ui/Modal";
-import TeamMobile from "@/Containers/Team/Item/Mobile";
 import { UserPlus } from "lucide-react";
 import { useState } from "react";
 

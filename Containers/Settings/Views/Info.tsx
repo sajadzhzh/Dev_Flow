@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Logo from "@/public/logo.png";
 import ContactWays from "../ContactWays";
-import Link from "next/link";
 import { Heart, MessageSquare, TriangleAlert } from "lucide-react";
 import FeedBack from "../FeedBack/feedBack";
 

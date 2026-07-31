@@ -1,6 +1,6 @@
-import CardItem from "@/Components/ui/CardItem";
+import CardItem from "@/Components/ui/Cards/ProjectCardItem";
 import Link from "next/link";
-import TaskTableItem from "@/Components/ui/TaskTableItem";
+import TaskTableItem from "@/Components/ui/Tasks/TaskTableItem";
 
 export default function UserStatus() {
   return (

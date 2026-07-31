@@ -55,26 +55,14 @@ export default function ProjectDetailsFiles() {
             priority="mid"
             menus={[
               {
-                title: "مشاهده جزئیات",
-                href: "/dashboard/projects/1",
-              },
-              {
-                title: "ویرایش",
-                onClick: () => console.log("edit"),
-              },
-              {
-                title: "مدیریت اعضا",
-                href: "/dashboard/projects/1?view=users",
-              },
-              {
-                title: "کپی لینک",
+                title: "دانلود فایل",
                 onClick: () => {
-                  navigator.clipboard.writeText(window.location.href);
+                  console.log("Download");
                 },
               },
               {
                 dividerBefore: true,
-                title: "حذف پروژه",
+                title: "حذف فایل",
                 danger: true,
                 onClick: () => {
                   console.log("delete");
@@ -90,26 +78,14 @@ export default function ProjectDetailsFiles() {
             priority="high"
             menus={[
               {
-                title: "مشاهده جزئیات",
-                href: "/dashboard/projects/1",
-              },
-              {
-                title: "ویرایش",
-                onClick: () => console.log("edit"),
-              },
-              {
-                title: "مدیریت اعضا",
-                href: "/dashboard/projects/1?view=users",
-              },
-              {
-                title: "کپی لینک",
+                title: "دانلود فایل",
                 onClick: () => {
-                  navigator.clipboard.writeText(window.location.href);
+                  console.log("Download");
                 },
               },
               {
                 dividerBefore: true,
-                title: "حذف پروژه",
+                title: "حذف فایل",
                 danger: true,
                 onClick: () => {
                   console.log("delete");

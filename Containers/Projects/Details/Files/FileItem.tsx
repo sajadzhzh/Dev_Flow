@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Profile from "@/public/Profile.png";
-import DropdownMenu, { DropdownItem } from "../../../../Components/ui/DropDownMenu";
+import DropdownMenu, { DropdownItem } from "../../../../Components/ui/DropDown/DropDownMenu";
 
 type Priority = "high" | "mid" | "low"
 
