@@ -5,7 +5,7 @@ export const users = mysqlTable("users", {
 
   userName: varchar("userName", {
     length: 100,
-  }),
+  }).unique(),
 
   email: varchar("email", {
     length: 100,
@@ -17,5 +17,11 @@ export const users = mysqlTable("users", {
     length: 255,
   }),
 
+  avatar: varchar("avatar", {
+    length: 255,
+  }),
+
   created_at: timestamp("created_at").defaultNow(),
+
+  updated_at: timestamp("updated_at"),
 });
