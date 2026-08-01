@@ -1,8 +1,12 @@
 "use server";
 
 import { auth, signIn } from "@/auth";
+import { db } from "@/Lib/DataBase/Db";
+import { users } from "@/Lib/DataBase/Schema/users";
 import { ValidateEmail, ValidatePassword } from "@/Lib/Helper/CheckValid";
 import { postFetch } from "@/Lib/Helper/Fetch";
+import { VerifyPass } from "@/Lib/Security/Hash";
+import { eq } from "drizzle-orm";
 
 export async function register(state: any, formData: FormData) {
   const name = formData.get("name");
@@ -90,6 +94,30 @@ export async function login(state: any, formData: FormData) {
   }
 
   try {
+    const [user] = await db
+      .select({
+        id: users.id,
+        userName: users.userName,
+        password: users.password,
+        email: users.email,
+      })
+      .from(users)
+      .where(eq(users.email, email as string));
+
+    if (!user) {
+      return {
+        status: "error",
+        message: "کاربر پیدا نشد",
+      };
+    }
+
+    if (!(await VerifyPass(user.password as string, password as string))) {
+      return {
+        status: "error",
+        message: "رمز عبور اشتباه است",
+      };
+    }
+
     await signIn("credentials", {
       email: email,
       password: password,
@@ -101,9 +129,11 @@ export async function login(state: any, formData: FormData) {
       message: "خوش آمدید.",
     };
   } catch (e: any) {
+    console.log(e.message);
+
     return {
       status: "error",
-      message: `Something happend: ${e.message}`,
+      message: `مشکلی پیش آمد. لطفا دوباره تلاش کنید`,
     };
   }
 }
@@ -114,7 +144,7 @@ export async function me() {
   if (!session?.user) {
     return null;
   }
-  
+
   return {
     user: session.user,
   };

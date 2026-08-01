@@ -7,7 +7,7 @@ import { UserPlus } from "lucide-react";
 import { useState } from "react";
 import TeamMobile from "./Item/Mobile";
 
-export default function TeamModal() {
+export default function TeamInviteModal() {
   const [open, setOpen] = useState(false);
   return (
     <>

@@ -2,21 +2,28 @@ import SearchItems from "@/Components/Layout/Search";
 import SelectBox from "@/Components/ui/Input/Select";
 import Card from "@/Components/ui/Cards/SmallCard";
 import { FolderOpen, Gavel, SquareCheck, Users } from "lucide-react";
-import UsersTable from "@/Containers/Team/Users"
-import TeamModal from "@/Containers/Team/Modal";
+import UsersTable from "@/Containers/Team/Users";
+import "../profile/profile.css";
+import TeamCard from "@/Containers/Team/TeamCard";
+import TeamInviteModal from "@/Containers/Team/InviteModal";
+import TeamInfoModal from "@/Containers/Team/InfoModal";
 
 export default function TeamPage() {
   return (
     <div className="w-full flex flex-col gap-3 p-5">
       <div className="w-full flex flex-col lg:flex-row gap-3">
         <div className="flex items-center justify-end gap-2 w-full lg:w-1/2 h-max order-1 lg:order-2">
-          <TeamModal />
+          <TeamInviteModal />
         </div>
         <div className="flex flex-col justify-center gap-2 w-full lg:w-1/2 h-max order-2 lg:order-1">
           <h2 className="text-2xl m-0">اعضای تیم</h2>
           <p className="text-sm text-gray-400">مدیریت اعضای تیم و عملکرد کلی</p>
         </div>
       </div>
+
+      <TeamCard />
+
+      <TeamInfoModal createTeam/>
 
       <div className="w-full flex gap-5 flex-wrap flex-col lg:flex-row">
         <Card title="تسک های فعال" value={20} icon={Gavel} color="purple" />

@@ -12,7 +12,7 @@ export default function UsersTable() {
         <p className="text-gray-500 text-center w-1/8">آخرین فعالیت</p>
         <p className="text-gray-500 text-end w-1/8">عملیات</p>
       </div>
-      <div className="flex flex-col gap-2 p-2 h-80 xl:h-115 overflow-y-scroll scrollbar-none">
+      <div className="flex flex-col gap-2 p-2 h-80 xl:h-60 overflow-y-scroll scrollbar-none">
         <UserTeam />
         <UserTeam />
         <UserTeam />

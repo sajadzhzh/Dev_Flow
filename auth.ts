@@ -29,7 +29,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const [user] = await db
           .select({
             id: users.id,
-            name: users.name,
+            userName: users.userName,
             password: users.password,
             email: users.email,
           })
@@ -51,7 +51,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         return {
           id: String(user.id),
-          name: user.name,
+          name: user.userName,
           email: user.email,
         };
       },

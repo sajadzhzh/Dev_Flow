@@ -3,7 +3,7 @@ import { mysqlTable, varchar, int, timestamp } from "drizzle-orm/mysql-core";
 export const users = mysqlTable("users", {
   id: int("id").autoincrement().primaryKey(),
 
-  name: varchar("name", {
+  userName: varchar("userName", {
     length: 100,
   }),
 
@@ -17,5 +17,5 @@ export const users = mysqlTable("users", {
     length: 255,
   }),
 
-  createdAt: timestamp("createdAt").defaultNow(),
+  created_at: timestamp("created_at").defaultNow(),
 });

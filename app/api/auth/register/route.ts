@@ -56,7 +56,7 @@ export async function POST(req: Request) {
     const [user] = await db
       .select({
         id: users.id,
-        name: users.name,
+        name: users.userName,
         password: users.password,
         email: users.email,
       })
@@ -77,7 +77,7 @@ export async function POST(req: Request) {
 
     const insert = await db
       .insert(users)
-      .values({ name: name, email: email, password: hashed });
+      .values({ userName: name, email: email, password: hashed });
 
     return NextResponse.json(
       {
@@ -87,10 +87,12 @@ export async function POST(req: Request) {
       { status: 200 },
     );
   } catch (e: any) {
+    console.log(e.message);
+    
     return NextResponse.json(
       {
         status: "error",
-        message: `Something happend: ${e.message}`,
+        message: `Something happend. Try again later.`,
       },
       { status: 500 },
     );

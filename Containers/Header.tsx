@@ -16,6 +16,7 @@ export default function Header() {
   const { data: session } = useSession();
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
+  
 
   const pushRoute = (route: string) => {
     router.push(route);
