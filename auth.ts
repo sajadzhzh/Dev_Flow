@@ -5,6 +5,7 @@ import { users } from "./Lib/DataBase/Schema/users";
 import { eq } from "drizzle-orm";
 import { ValidateEmail, ValidatePassword } from "./Lib/Helper/CheckValid";
 import { VerifyPass } from "./Lib/Security/Hash";
+import { getUserByEmail } from "./Lib/Repository/User.Repository";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -26,15 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return null;
         }
 
-        const [user] = await db
-          .select({
-            id: users.id,
-            userName: users.userName,
-            password: users.password,
-            email: users.email,
-          })
-          .from(users)
-          .where(eq(users.email, credentials.email as string));
+        const user = await getUserByEmail(credentials.email as string)
 
         if (!user) {
           return null;

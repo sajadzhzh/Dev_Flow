@@ -1,8 +1,6 @@
-import { db } from "@/Lib/DataBase/Db";
-import { users } from "@/Lib/DataBase/Schema/users";
 import { ValidateEmail, ValidatePassword } from "@/Lib/Helper/CheckValid";
+import { createUser, getUserByEmail } from "@/Lib/Repository/User.Repository";
 import { Hash } from "@/Lib/Security/Hash";
-import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -53,15 +51,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const [user] = await db
-      .select({
-        id: users.id,
-        name: users.userName,
-        password: users.password,
-        email: users.email,
-      })
-      .from(users)
-      .where(eq(users.email, email as string));
+    const user = await getUserByEmail(email);
 
     if (user) {
       return NextResponse.json(
@@ -75,9 +65,11 @@ export async function POST(req: Request) {
 
     const hashed = await Hash(password);
 
-    const insert = await db
-      .insert(users)
-      .values({ userName: name, email: email, password: hashed });
+    await createUser({
+      userName: name,
+      email: email,
+      password: hashed,
+    });
 
     return NextResponse.json(
       {
@@ -88,7 +80,7 @@ export async function POST(req: Request) {
     );
   } catch (e: any) {
     console.log(e.message);
-    
+
     return NextResponse.json(
       {
         status: "error",
