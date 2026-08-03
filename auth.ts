@@ -1,8 +1,5 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { db } from "./Lib/DataBase/Db";
-import { users } from "./Lib/DataBase/Schema/users";
-import { eq } from "drizzle-orm";
 import { ValidateEmail, ValidatePassword } from "./Lib/Helper/CheckValid";
 import { VerifyPass } from "./Lib/Security/Hash";
 import { getUserByEmail } from "./Lib/Repository/User.Repository";

@@ -54,6 +54,7 @@ export const databaseSchema = {
         id INT AUTO_INCREMENT PRIMARY KEY,
         user_id INT NOT NULL,
         team_id INT NOT NULL,
+        role TINYINT NOT NULL DEFAULT 1,
         joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(team_id) REFERENCES teams(id),
         FOREIGN KEY(user_id) REFERENCES users(id)

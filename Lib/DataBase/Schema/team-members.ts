@@ -1,3 +1,4 @@
+import { Role } from "@/Lib/Constants/Role";
 import {
   mysqlTable,
   int,
@@ -16,6 +17,9 @@ export const teamMembers = mysqlTable("team_members", {
 
   team_id: int("team_id")
     .notNull(),
+
+  role: int("role")
+    .notNull().default(Role.USER),
 
   joined_at: timestamp("joined_at")
     .defaultNow(),

@@ -13,17 +13,20 @@ const getFetch = async (url: string, headers: HeadersInit = {}) => {
     if (res.ok) {
       const data = await res.json();
       return data;
-    } else {
-      return{
-        status: "error",
-        message: `مشکلی در دریافت اطلاعات پیش آمد.کد : ${res.status}`
-      }
     }
-  } catch (e:any) {
-    return{
-        status: "error",
-        message: `مشکلی در دریافت اطلاعات پیش آمد.کد : ${e.message}`
-      }
+
+    const error = await res.json();
+
+    return {
+      status: "error",
+      message: error.message,
+    };
+    
+  } catch (e: any) {
+    return {
+      status: "error",
+      message: `مشکلی در دریافت اطلاعات پیش آمد.کد : ${e.message}`,
+    };
   }
 };
 
