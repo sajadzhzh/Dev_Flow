@@ -13,7 +13,7 @@ export const teams = mysqlTable("teams", {
     length: 100,
   }).notNull(),
 
-  description: text("description"),
+  description: text("description").default("فاقد توضیحات!"),
 
   owner_id: int("owner_id").notNull(),
 

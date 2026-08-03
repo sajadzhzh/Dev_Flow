@@ -1,18 +1,49 @@
 import { eq } from "drizzle-orm";
 import { db } from "../DataBase/Db";
-import { teamMembers } from "../DataBase/Schema";
+import { teamMembers, teams } from "../DataBase/Schema";
+import { Role } from "../Constants/Role";
 
-export async function getTeamMembersByUserId(id: number) {
+export async function InitialTeam(data: {
+  name: string;
+  description?: string;
+  owner_id: number;
+}) {
+  return await db.transaction(async (tx) => {
+    await tx.insert(teams).values(data);
+
+    const [team] = await tx
+      .select({
+        id: teams.id,
+      })
+      .from(teams)
+      .where(eq(teams.owner_id, data.owner_id));
+
+    if (!team) {
+      return null;
+    }
+
+    await tx.insert(teamMembers).values({
+      team_id: team.id,
+      user_id: data.owner_id,
+      role: Role.OWNER,
+    });
+
+    return {
+      teamId: team.id,
+    };
+  });
+}
+
+export async function getTeamByTeamId(id: number) {
   const [team] = await db
     .select({
-      id: teamMembers.id,
-      user_id: teamMembers.user_id,
-      team_id: teamMembers.team_id,
-      role: teamMembers.role,
-      joind_at: teamMembers.joined_at,
+      id: teams.id,
+      name: teams.name,
+      description: teams.description,
+      owner_id: teams.owner_id,
     })
-    .from(teamMembers)
-    .where(eq(teamMembers.user_id, id));
+    .from(teams)
+    .where(eq(teams.id, id));
 
   return team ?? null;
 }

@@ -16,6 +16,19 @@ export async function getUserByEmail(email: string) {
   return user ?? null;
 }
 
+export async function getUserById(id: number) {
+  const [user] = await db
+    .select({
+      id: users.id,
+      userName: users.userName,
+      email: users.email,
+    })
+    .from(users)
+    .where(eq(users.id, id));
+
+  return user ?? null;
+}
+
 export async function createUser(data: {
   userName?: string;
   email: string;

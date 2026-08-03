@@ -13,11 +13,12 @@ import TeamInviteModal from "./InviteModal";
 import { FolderOpen, Gavel, SquareCheck, Users } from "lucide-react";
 import { Timestamp } from "next/dist/server/lib/cache-handlers/types";
 import Loading from "@/app/loading";
+import { Role } from "@/Lib/Constants/Role";
 
 type Team = {
   id: number;
-  teamId: number;
-  userId: number;
+  team_id: number;
+  user_id: number;
   role: number;
   joinedAt: Timestamp;
 };
@@ -40,16 +41,18 @@ export default function TeamModifier() {
         case "success":
           setTeam(req.data);
           setLoading(false);
+          break;
       }
     };
 
     request();
   }, []);
+  
   return (
     <>
       <div className="w-full flex flex-col lg:flex-row gap-3">
         <div className="flex items-center justify-end gap-2 w-full lg:w-1/2 h-max order-1 lg:order-2">
-          {team && <TeamInviteModal />}
+          {team && team?.role == Role.OWNER && <TeamInviteModal />}
         </div>
         <div className="flex flex-col justify-center gap-2 w-full lg:w-1/2 h-max order-2 lg:order-1">
           <h2 className="text-2xl m-0">اعضای تیم</h2>
@@ -59,7 +62,11 @@ export default function TeamModifier() {
 
       {loading && <Loading />}
 
-      {team ? <TeamCard /> : <TeamInfoModal createTeam />}
+      {team ? (
+        <TeamCard team_id={team.team_id} role={team.role} />
+      ) : (
+        <TeamInfoModal createTeam />
+      )}
 
       {team && (
         <>

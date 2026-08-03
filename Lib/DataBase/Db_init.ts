@@ -41,7 +41,7 @@ export const databaseSchema = {
       columns: `
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
-        description TEXT NULL,
+        description TEXT DEFAULT "فاقد توضیحات!",
         owner_id INT NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP NULL,
