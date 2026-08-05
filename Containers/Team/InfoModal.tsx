@@ -13,16 +13,23 @@ type Team = {
   owner_id: number;
 };
 
+type Owner = {
+  id: number;
+  userName: string;
+  email: string;
+};
+
 export default function TeamInfoModal({
   createTeam,
   team,
+  owner,
 }: {
   team?: Team;
+  owner?: Owner | null;
   createTeam?: boolean;
 }) {
   const [open, setOpen] = useState(false);
-  
-    
+      
   return (
     <>
       <Button
@@ -39,7 +46,7 @@ export default function TeamInfoModal({
         </Modal.Header>
 
         <Modal.Body>
-          <TeamForm createTeam={createTeam} />
+          {createTeam ? <TeamForm createTeam/> : <TeamForm team={team} owner={owner}/>}
         </Modal.Body>
       </Modal>
     </>

@@ -16,3 +16,18 @@ export async function getTeamMembersByUserId(id: number) {
 
   return team ?? null;
 }
+
+export async function getTeamMembersByTeamId(id: number) {
+  const members = await db
+    .select({
+      id: teamMembers.id,
+      user_id: teamMembers.user_id,
+      team_id: teamMembers.team_id,
+      role: teamMembers.role,
+      joind_at: teamMembers.joined_at,
+    })
+    .from(teamMembers)
+    .where(eq(teamMembers.team_id, id));
+
+  return members ?? null;
+}

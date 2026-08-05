@@ -56,7 +56,7 @@ export default function TeamCard({
         <div className="w-full flex flex-col lg:flex-row gap-4 justify-between">
           <h3 className="text-xl">تیم {team?.name}</h3>
 
-          {role == Role.OWNER && team && <TeamInfoModal team={team} />}
+          {role == Role.OWNER && team && <TeamInfoModal team={team} owner={owner} />}
         </div>
         <p className="text-[13px] text-gray-400 text-justify">
           {team?.description}

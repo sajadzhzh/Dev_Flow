@@ -1,6 +1,9 @@
 import { auth } from "@/auth";
 import { getTeamMembersByUserId } from "@/Lib/Repository/Team_members.Repository";
-import { InitialTeam } from "@/Lib/Repository/Teams.Repository";
+import {
+  getTeamByTeamName,
+  InitialTeam,
+} from "@/Lib/Repository/Teams.Repository";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -59,6 +62,18 @@ export async function POST(request: Request) {
   }
 
   try {
+    const isTaken = await getTeamByTeamName(name);
+
+    if (isTaken) {
+      return NextResponse.json(
+        {
+          status: "error",
+          message: "نام تیم تکراری است.لطفا نام دیگری انتخاب کنید.",
+        },
+        { status: 401 },
+      );
+    }
+
     const res = await InitialTeam({
       name,
       description: finalDescription,

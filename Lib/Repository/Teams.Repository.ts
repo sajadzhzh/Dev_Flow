@@ -34,6 +34,20 @@ export async function InitialTeam(data: {
   });
 }
 
+export async function getTeamByTeamName(name: string) {
+  const [team] = await db
+    .select({
+      id: teams.id,
+      name: teams.name,
+      description: teams.description,
+      owner_id: teams.owner_id,
+    })
+    .from(teams)
+    .where(eq(teams.name, name));
+
+  return team ?? null;
+}
+
 export async function getTeamByTeamId(id: number) {
   const [team] = await db
     .select({

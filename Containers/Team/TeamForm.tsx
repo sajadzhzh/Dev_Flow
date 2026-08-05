@@ -2,13 +2,35 @@
 
 import { initialTeam } from "@/Actions/team";
 import Button from "@/Components/ui/Input/Button";
-import SelectBox from "@/Components/ui/Input/Select";
 import { SubmitEvent, useState } from "react";
 import toast from "react-hot-toast";
+import SelectOwner from "./SelectOwner";
 
-export default function TeamForm({ createTeam }: { createTeam?: boolean }) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+type Team = {
+  id: number;
+  name: string;
+  description: string;
+  owner_id: number;
+};
+
+type Owner = {
+  id: number;
+  userName: string;
+  email: string;
+};
+
+export default function TeamForm({
+  createTeam,
+  team,
+  owner,
+}: {
+  createTeam?: boolean;
+  team?: Team;
+  owner?: Owner | null;
+}) {
+  
+  const [name, setName] = useState(team?.name ?? "");
+  const [description, setDescription] = useState(team?.description ?? "");
 
   const request = async (e: SubmitEvent) => {
     e.preventDefault();
@@ -27,7 +49,7 @@ export default function TeamForm({ createTeam }: { createTeam?: boolean }) {
       case "success":
         toast.success(res.message);
         setTimeout(() => {
-          window.location.reload()
+          window.location.reload();
         }, 2000);
         break;
     }
@@ -43,6 +65,7 @@ export default function TeamForm({ createTeam }: { createTeam?: boolean }) {
           name="teamName"
           id="teamName"
           onChange={(e) => setName(e.target.value)}
+          defaultValue={!createTeam ? team?.name : ""}
           className="w-full border border-gray-800 py-2 ps-4 rounded-xl focus:border-gray-400 placeholder:text-gray-500"
         />
       </div>
@@ -56,20 +79,16 @@ export default function TeamForm({ createTeam }: { createTeam?: boolean }) {
           name="teamDescription"
           id="teamDescription"
           onChange={(e) => setDescription(e.target.value)}
+          defaultValue={!createTeam ? team?.description : ""}
           className="w-full border outline-0 border-gray-800 py-2 ps-4 rounded-xl focus:border-gray-400 placeholder:text-gray-500"
         />
       </div>
 
       {!createTeam && (
         <div className="flex flex-col gap-2">
-          <label htmlFor="teamOwner" className="text-[13px] w-max">
-            مالک تیم
-          </label>
-          <SelectBox
-            name="teamOwner"
-            id="teamOwner"
-            values={["Sajadzhzh", "Amir"]}
-          />
+          {team && owner && (
+            <SelectOwner owner={owner?.userName} team_id={team?.id} />
+          )}
         </div>
       )}
 

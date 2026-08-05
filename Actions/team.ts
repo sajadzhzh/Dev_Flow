@@ -143,3 +143,50 @@ export async function myTeam(team_id: number) {
     };
   }
 }
+
+export async function teamMembers(team_id: number) {
+  const session = await auth();
+
+  if (!session?.user) {
+    return {
+      status: "error",
+      message: "فاقد اعتبار سنجی.لطفا دوباره وارد حساب خود شوید",
+    };
+  }
+  if (!team_id) {
+    return {
+      status: "error",
+      message: "آیدی تیم وارد نشده است. دوباره تلاش کنید",
+    };
+  }
+
+  const cookieStore = await cookies();
+
+  try {
+    const res = await postFetch(
+      "/team/members",
+      { team_id },
+      {
+        Cookie: cookieStore.toString(),
+      },
+    );
+
+    if (res.status == "error") {
+      return {
+        status: "error",
+        message: res.message,
+      };
+    }
+
+    return {
+      status: "success",
+      data: res.data,
+    };
+  } catch (e: any) {
+    console.log(e.message);
+    return {
+      status: "error",
+      messsage: "مشکلی در دریافت اطلاعات پیش آمد. لطفا دوباره تلاش کنید.",
+    };
+  }
+}
