@@ -1,6 +1,6 @@
 "use client";
 
-import { initialTeam } from "@/Actions/team";
+import { initialTeam, updateTeam } from "@/Actions/team";
 import Button from "@/Components/ui/Input/Button";
 import { SubmitEvent, useState } from "react";
 import toast from "react-hot-toast";
@@ -28,8 +28,8 @@ export default function TeamForm({
   team?: Team;
   owner?: Owner | null;
 }) {
-  
   const [name, setName] = useState(team?.name ?? "");
+  const [newOwner, setNewOwner] = useState(owner?.id ?? "");
   const [description, setDescription] = useState(team?.description ?? "");
 
   const request = async (e: SubmitEvent) => {
@@ -40,7 +40,15 @@ export default function TeamForm({
       return;
     }
 
-    const res = await initialTeam({ name, description });
+    const res =
+      createTeam && team
+        ? await initialTeam({ name, description })
+        : await updateTeam({
+            id: team?.id,
+            name: name,
+            description,
+            owner: Number(newOwner),
+          });
 
     switch (res.status) {
       case "error":
@@ -87,7 +95,11 @@ export default function TeamForm({
       {!createTeam && (
         <div className="flex flex-col gap-2">
           {team && owner && (
-            <SelectOwner owner={owner?.userName} team_id={team?.id} />
+            <SelectOwner
+              owner={owner}
+              team_id={team?.id}
+              onChange={setNewOwner}
+            />
           )}
         </div>
       )}

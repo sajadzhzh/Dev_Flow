@@ -1,11 +1,13 @@
 "use server";
 
 import { auth } from "@/auth";
-import { getFetch, postFetch } from "@/Lib/Helper/Fetch";
+import { getFetch, postFetch, putFetch } from "@/Lib/Helper/Fetch";
 import { cookies } from "next/headers";
 
 type InitialTeamDto = {
+  id?: number;
   name: string;
+  owner?: number;
   description: string;
 };
 
@@ -96,6 +98,70 @@ export async function initialTeam(data: InitialTeamDto) {
   }
 }
 
+export async function updateTeam(data: InitialTeamDto) {
+  const { id, name, description, owner } = data;
+  const session = await auth();
+
+  if (!session?.user) {
+    return {
+      status: "error",
+      message: "فاقد اعتبار سنجی.لطفا دوباره وارد حساب خود شوید",
+    };
+  }
+
+  if (!name.trim()) {
+    return {
+      status: "error",
+      message: "مقدار نام تیم الزامی است",
+    };
+  }
+
+  if (!id) {
+    return {
+      status: "error",
+      message: "آیدی وارد نشد.لطفا دوباره تلاش کنید.",
+    };
+  }
+
+  if (!owner) {
+    return {
+      status: "error",
+      message: "آیدی مالک وارد نشد.لطفا دوباره تلاش کنید.",
+    };
+  }
+
+  const cookieStore = await cookies();
+
+  try {
+    const res = await putFetch(
+      "/team",
+      { id, name, owner, description },
+      {
+        Cookie: cookieStore.toString(),
+      },
+    );    
+
+    if (res.status == "error") {
+      return {
+        status: "error",
+        message: res.message,
+      };
+    }
+
+    return {
+      status: "success",
+      message: res.message,
+      data: res.data,
+    };
+  } catch (e: any) {
+    console.log(e.message);
+    return {
+      status: "error",
+      messsage: "مشکلی در دریافت اطلاعات پیش آمد. لطفا دوباره تلاش کنید.",
+    };
+  }
+}
+
 export async function myTeam(team_id: number) {
   const session = await auth();
 
@@ -133,7 +199,7 @@ export async function myTeam(team_id: number) {
     return {
       status: "success",
       data: res.data,
-      owner: res.owner
+      owner: res.owner,
     };
   } catch (e: any) {
     console.log(e.message);

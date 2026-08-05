@@ -13,8 +13,6 @@ export async function POST(request: Request) {
   const { team_id } = await request.json();
   const session = await auth();
 
-  console.log(team_id);
-
   if (!session?.user) {
     return NextResponse.json(
       { status: "error", message: "فاقد اعتبار سنجی" },

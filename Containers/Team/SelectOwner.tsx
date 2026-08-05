@@ -11,12 +11,20 @@ type User = {
   email: string;
 };
 
+type Owner = {
+  id: number;
+  userName: string;
+  email: string;
+};
+
 export default function SelectOwner({
   owner,
   team_id,
+  onChange,
 }: {
-  owner: string;
+  owner: Owner;
   team_id: number;
+  onChange?: (value: string) => void;
 }) {
   const [users, setUsers] = useState<User[]>([]);
   useEffect(() => {
@@ -45,11 +53,19 @@ export default function SelectOwner({
         name="teamOwner"
         id="teamOwner"
         wFull
+        onChange={onChange}
         values={[
-          owner,
+          {
+            label: owner.userName,
+            value: owner.id.toString(),
+          },
+
           ...users
-            .filter((user) => user.userName !== owner)
-            .map((user) => user.userName),
+            .filter((user) => user.id !== owner.id)
+            .map((user) => ({
+              label: user.userName,
+              value: user.id.toString(),
+            })),
         ]}
       />
     </>

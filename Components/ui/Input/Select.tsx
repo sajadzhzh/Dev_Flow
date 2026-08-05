@@ -1,17 +1,24 @@
 import { ChevronDown, Filter } from "lucide-react";
 
+type Option = {
+  label: string;
+  value: string;
+};
+
 export default function SelectBox({
   name,
   id,
   values,
   smallY,
   wFull,
+  onChange,
 }: {
   name: string;
   id: string;
-  values: string[];
+  values: Option[];
   smallY?: boolean;
   wFull?: boolean;
+  onChange?: (value: string) => void;
 }) {
   return (
     <div className={`relative w-full ${wFull ? "w-full" : "xl:w-52"}`}>
@@ -24,7 +31,7 @@ export default function SelectBox({
           border border-white/10
           bg-[#18181B]
           px-4
-          ${smallY ? "py-2" : "py-3"}
+          py-3
           pr-11
           text-sm
           text-white
@@ -32,15 +39,17 @@ export default function SelectBox({
           transition
           hover:border-violet-500/50
           focus:border-violet-500
+          ${smallY ? "py-2" : "py-3"}
           focus:ring-2
           focus:ring-violet-500/20
-          `}
+        `}
         name={name}
         id={id}
+        onChange={(e) => onChange?.(e.target.value)}
       >
-        {values.map((i, index) => (
-          <option value={i} key={index}>
-            {i}
+        {values.map((item, index) => (
+          <option value={item.value} key={index}>
+            {item.label}
           </option>
         ))}
       </select>

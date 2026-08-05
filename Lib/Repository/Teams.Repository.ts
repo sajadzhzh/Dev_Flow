@@ -34,6 +34,29 @@ export async function InitialTeam(data: {
   });
 }
 
+export async function UpdateTeam(data: {
+  id: number;
+  name: string;
+  description?: string;
+  owner: number;
+}) {
+  console.log("update");
+
+  const team = await db
+    .update(teams)
+    .set({
+      name: data.name,
+      description: data.description,
+      owner_id: data.owner,
+      updated_at: new Date(),
+    })
+    .where(eq(teams.id, data.id));
+
+  if (team[0].affectedRows === 0) return false;
+
+  return true;
+}
+
 export async function getTeamByTeamName(name: string) {
   const [team] = await db
     .select({

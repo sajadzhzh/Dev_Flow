@@ -49,4 +49,23 @@ const postFetch = async (
   return await res.json();
 };
 
-export { getFetch, postFetch };
+const putFetch = async (
+  url: string,
+  body: object,
+  headers: HeadersInit = {},
+) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/${url}`, {
+    cache: "no-store",
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      ...headers,
+    },
+    body: JSON.stringify(body),
+  });
+
+  return await res.json();
+};
+
+export { getFetch, postFetch, putFetch };
