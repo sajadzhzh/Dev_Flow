@@ -17,7 +17,10 @@ export default function ProjectsPage() {
     <div className="w-full flex flex-col gap-3 p-5">
       <div className="w-full flex flex-col lg:flex-row gap-2">
         <div className="flex lg:flex-col items-center lg:items-end justify-between gap-2 w-full lg:w-1/2 h-max order-1 lg:order-2">
-          <Link href="/dashboard/projects/new" className="order-1 lg:order-2 h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white">
+          <Link
+            href="/dashboard/projects/new"
+            className="order-1 lg:order-2 h-max py-2 px-4 bg-[#3b83f665] text-[#3B82F6] rounded-xl cursor-pointer hover:bg-[#3B82F6] hover:text-white"
+          >
             + پروژه جدید
           </Link>
           <div className="flex items-center gap-2 order-2 lg:order-1">
@@ -73,21 +76,35 @@ export default function ProjectsPage() {
       <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-4">
         <div className="flex gap-2 flex-wrap">
           <SelectBox
-            name="filterTime"
-            id="filterTime"
-            values={["جدیدترین", "قدیمی ترین", "بیشترین پیشرفت"]}
+            name="filterUsers"
+            id="filterUsers"
+            values={[
+              { label: "جدیدترین", value: "1" },
+              { label: "قدیمی ترین", value: "2" },
+              { label: "بیشترین پیشرفت", value: "3" },
+            ]}
           />
 
           <SelectBox
-            name="filterStatus"
-            id="filterStatus"
-            values={["همه وضعیت ها", "تکمیل شده", "در حال انجام", "متوقف شده"]}
+            name="filterUsers"
+            id="filterUsers"
+            values={[
+              { label: "همه وضعیت ها", value: "1" },
+              { label: "تکمیل شده", value: "2" },
+              { label: "در حال انجام", value: "3" },
+              { label: "متوقف شده", value: "4" },
+            ]}
           />
 
           <SelectBox
-            name="filterPaticipants"
-            id="filterPaticipants"
-            values={["همه اعضا", "sajad", "ali", "mohammad"]}
+            name="filterUsers"
+            id="filterUsers"
+            values={[
+              { label: "همه اعضا", value: "1" },
+              { label: "sajad", value: "2" },
+              { label: "ali", value: "3" },
+              { label: "mohammad", value: "4" },
+            ]}
           />
         </div>
 

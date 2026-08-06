@@ -47,7 +47,7 @@ export default function TeamModifier() {
 
     request();
   }, []);
-  
+
   return (
     <>
       <div className="w-full flex flex-col lg:flex-row gap-3">
@@ -95,7 +95,11 @@ export default function TeamModifier() {
               <SelectBox
                 name="filterUsers"
                 id="filterUsers"
-                values={["بیشترین پروژه", "بیشترین تسک", "آخرین فعالیت"]}
+                values={[
+                  { label: "آخرین فعالیت", value: "1" },
+                  { label: "بیشترین تسک", value: "2" },
+                  { label: "بیشترین پروژه", value: "3" },
+                ]}
               />
             </div>
 

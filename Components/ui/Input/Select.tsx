@@ -1,3 +1,5 @@
+"use client"
+
 import { ChevronDown, Filter } from "lucide-react";
 
 type Option = {

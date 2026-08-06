@@ -37,14 +37,23 @@ export default function ProjectDetailsTasks() {
       <div className="flex flex-col lg:flex-row justify-between gap-3">
         <div className="flex flex-col lg:flex-row gap-3 w-full lg:w-1/2">
           <SelectBox
-            name="sortTasks"
-            id="sortTasks"
-            values={["تاریخ", "اولویت بالا", "اولویت پائین"]}
+            name="filterUsers"
+            id="filterUsers"
+            values={[
+              { label: "تاریخ", value: "1" },
+              { label: "اولویت بالا", value: "2" },
+              { label: "اولویت پائین", value: "3" },
+            ]}
           />
           <SelectBox
-            name="filterTasks"
-            id="filterTasks"
-            values={["همه", "در حال انجام", "متوقف", "تکمیل شده"]}
+            name="filterUsers"
+            id="filterUsers"
+            values={[
+              { label: "همه", value: "1" },
+              { label: "در حال انجام", value: "2" },
+              { label: "متوقف", value: "3" },
+              { label: "تکمیل شده", value: "4" },
+            ]}
           />
         </div>
 
@@ -53,7 +62,10 @@ export default function ProjectDetailsTasks() {
             <SearchItems name="searchTasks" placeholder="جستجو در تسک ها" />
           </div>
           <div className="w-full lg:w-1/3">
-            <Link href="/dashboard/projects/1/tasks/new" className="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl w-full h-full py-2">
+            <Link
+              href="/dashboard/projects/1/tasks/new"
+              className="flex items-center justify-center bg-[#3b83f665] text-[#3B82F6] cursor-pointer hover:bg-[#3B82F6] hover:text-white rounded-xl w-full h-full py-2"
+            >
               <Plus />
               تسک جدید
             </Link>
@@ -70,25 +82,25 @@ export default function ProjectDetailsTasks() {
           <p className="text-gray-500 text-center w-2/9">عملیات</p>
         </div>
         <div className="flex flex-col gap-2 p-2 h-57 overflow-y-scroll scrollbar-none z-0">
-          <TaskRow 
+          <TaskRow
             title={"تحقیق و تحلیل نیازمندی ها"}
             date="1405/05/05"
             priority="حیاتی"
             Status="done"
           />
-          <TaskRow 
+          <TaskRow
             title={"تحقیق و تحلیل نیازمندی ها"}
             date="1405/05/05"
             priority="حیاتی"
             Status="inProccess"
           />
-          <TaskRow 
+          <TaskRow
             title={"تحقیق و تحلیل نیازمندی ها"}
             date="1405/05/05"
             priority="حیاتی"
             Status="suspend"
           />
-          <TaskRow 
+          <TaskRow
             title={"تحقیق و تحلیل نیازمندی ها"}
             date="1405/05/05"
             priority="حیاتی"
