@@ -8,12 +8,11 @@ import toast from "react-hot-toast";
 import UsersTable from "./Users";
 import SearchItems from "@/Components/Layout/Search";
 import SelectBox from "@/Components/ui/Input/Select";
-import Card from "@/Components/ui/Cards/SmallCard";
 import TeamInviteModal from "./InviteModal";
-import { FolderOpen, Gavel, SquareCheck, Users } from "lucide-react";
 import { Timestamp } from "next/dist/server/lib/cache-handlers/types";
 import Loading from "@/app/loading";
 import { Role } from "@/Lib/Constants/Role";
+import TeamInfo from "./TeamInfo";
 
 type Team = {
   id: number;
@@ -71,23 +70,7 @@ export default function TeamModifier() {
       {team && (
         <>
           <div className="w-full flex gap-5 flex-wrap flex-col lg:flex-row">
-            <Card title="تسک های فعال" value={20} icon={Gavel} color="purple" />
-
-            <Card
-              title="پروژه‌های فعال"
-              value={12}
-              icon={FolderOpen}
-              color="blue"
-            />
-
-            <Card
-              title="پروژه‌های تکمیل شده"
-              value={8}
-              icon={SquareCheck}
-              color="green"
-            />
-
-            <Card title="تعداد اعضا" value={2} icon={Users} color="orange" />
+            <TeamInfo teamId={team.team_id}/>
           </div>
 
           <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-4">

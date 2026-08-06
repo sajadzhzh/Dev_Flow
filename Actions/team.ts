@@ -139,7 +139,7 @@ export async function updateTeam(data: InitialTeamDto) {
       {
         Cookie: cookieStore.toString(),
       },
-    );    
+    );
 
     if (res.status == "error") {
       return {
@@ -247,6 +247,54 @@ export async function teamMembers(team_id: number) {
     return {
       status: "success",
       data: res.data,
+    };
+  } catch (e: any) {
+    console.log(e.message);
+    return {
+      status: "error",
+      messsage: "مشکلی در دریافت اطلاعات پیش آمد. لطفا دوباره تلاش کنید.",
+    };
+  }
+}
+
+export async function teamStats(team_id: number) {
+  const session = await auth();
+
+  if (!session?.user) {
+    return {
+      status: "error",
+      message: "فاقد اعتبار سنجی.لطفا دوباره وارد حساب خود شوید",
+    };
+  }
+  if (!team_id) {
+    return {
+      status: "error",
+      message: "آیدی تیم وارد نشده است. دوباره تلاش کنید",
+    };
+  }
+
+  const cookieStore = await cookies();
+
+  try {
+    const res = await postFetch(
+      "/team/info",
+      { team_id },
+      {
+        Cookie: cookieStore.toString(),
+      },
+    );
+
+    if (res.status == "error") {
+      return {
+        status: "error",
+        message: res.message,
+      };
+    }
+
+    return {
+      status: "success",
+      data: res.data,
+      users: res.users,
     };
   } catch (e: any) {
     console.log(e.message);

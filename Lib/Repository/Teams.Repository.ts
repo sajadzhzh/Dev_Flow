@@ -1,7 +1,8 @@
-import { eq } from "drizzle-orm";
+import { count, eq } from "drizzle-orm";
 import { db } from "../DataBase/Db";
-import { teamMembers, teams } from "../DataBase/Schema";
+import { projects, tasks, teamMembers, teams } from "../DataBase/Schema";
 import { Role } from "../Constants/Role";
+import { Status } from "../Constants/Status";
 
 export async function InitialTeam(data: {
   name: string;
@@ -83,4 +84,36 @@ export async function getTeamByTeamId(id: number) {
     .where(eq(teams.id, id));
 
   return team ?? null;
+}
+
+export async function getTeamStats(teamId: number) {
+  const result = await db
+    .select({
+      id: projects.id,
+      name: projects.name,
+      status: projects.status,
+      taskCount: count(tasks.id),
+    })
+    .from(projects)
+    .leftJoin(tasks, eq(tasks.project_id, projects.id))
+    .where(eq(projects.team_id, teamId))
+    .groupBy(projects.id);
+
+  const totalProjects = result.length;
+
+  const activeProjects = result.filter(
+    (project) => project.status === Status.IN_PROCCESS
+  ).length;
+
+  const totalTasks = result.reduce(
+    (sum, project) => sum + Number(project.taskCount),
+    0
+  );
+
+  return {
+    totalProjects,
+    activeProjects,
+    totalTasks,
+    projects: result,
+  };
 }
