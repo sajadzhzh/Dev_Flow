@@ -30,7 +30,15 @@ export default function TeamInviteModal() {
             />
 
             <div className="w-full py-3 px-5 bg-[#18181B] border xl:bg-none hover:bg-[#28282B] hover:border-gray-400 border-white/10 rounded-xl">
-              <TeamMobile invite />
+              <TeamMobile
+                user={{
+                  id: 1,
+                  email: "asdasdasd",
+                  userName: "asdasdasdasdafd",
+                  avatar: "",
+                }}
+                invite
+              />
             </div>
           </div>
         </Modal.Body>

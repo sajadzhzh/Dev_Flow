@@ -28,8 +28,8 @@ export default function TeamModifier() {
 
   useEffect(() => {
     const request = async () => {
-      setLoading(true);
       const req = await getTeam();
+      setLoading(true);
 
       switch (req.status) {
         case "error":
@@ -91,7 +91,7 @@ export default function TeamModifier() {
             </div>
           </div>
 
-          <UsersTable />
+          <UsersTable teamId={team.team_id}/>
         </>
       )}
     </>

@@ -1,21 +1,61 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Dialog from "@/Components/ui/Dialog";
 import TeamDesktop from "./Desktop";
 import TeamMobile from "./Mobile";
+import { teamMembers } from "@/Actions/team";
+import toast from "react-hot-toast";
+import Loading from "@/app/loading";
 
-export default function UserTeam() {
+type User = {
+  id: number;
+  userName: string;
+  email: string;
+  avatar: string;
+};
+
+export default function UserTeam({ teamId }: { teamId: number }) {
   const [deleteOpen, setDeleteOpen] = useState(false);
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const request = async () => {
+      const req = await teamMembers(teamId);
+      setLoading(true);
+
+      switch (req.status) {
+        case "error":
+          setUsers([]);
+          setLoading(false);
+          toast.error(req.message);
+          break;
+        case "success":
+          setUsers(req.data);
+          setLoading(false);
+          break;
+      }
+    };
+    request();
+  }, []);
 
   return (
     <>
-      <div className="w-full py-3 px-5 bg-[#18181B] border xl:bg-none hover:bg-[#28282B] hover:border-gray-400 border-white/10 rounded-xl">
-        <TeamDesktop onDelete={() => setDeleteOpen(true)} />
+      {users &&
+        users.map((user, index) => (
+          <div
+            key={index}
+            className="w-full py-3 px-5 bg-[#18181B] border xl:bg-none hover:bg-[#28282B] hover:border-gray-400 border-white/10 rounded-xl"
+          >
+            <TeamDesktop user={user} onDelete={() => setDeleteOpen(true)} />
 
-        <TeamMobile onDelete={() => setDeleteOpen(true)} />
-      </div>
+            <TeamMobile user={user} onDelete={() => setDeleteOpen(true)} />
+          </div>
+        ))}
+
+      {loading && <Loading />}
 
       <Dialog
         open={deleteOpen}

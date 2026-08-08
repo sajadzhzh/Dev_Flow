@@ -1,31 +1,44 @@
 import Image from "next/image";
-import Profile from "@/public/Profile.png";
 import TeamActions from "./Actions";
 import Button from "@/Components/ui/Input/Button";
+import { CircleUserRound } from "lucide-react";
+
+type User = {
+  id: number;
+  userName: string;
+  email: string;
+  avatar: string;
+};
 
 export default function TeamMobile({
   onDelete,
   invite,
+  user,
 }: {
   onDelete?: () => void;
   invite?: boolean;
+  user: User;
 }) {
   return (
     <div className={`w-full flex ${!invite && "xl:hidden"}`}>
       <div className="w-2/3">
         <div className="flex gap-2 items-center">
-          <Image
-            src={Profile}
-            alt="Profile"
-            width={1000}
-            height={1000}
-            loading="eager"
-            className="size-10 rounded-full"
-          />
+          {user.avatar ? (
+            <Image
+              src={user.avatar}
+              alt="Profile"
+              width={1000}
+              height={1000}
+              loading="eager"
+              className="size-10 rounded-full"
+            />
+          ) : (
+            <CircleUserRound size={28} />
+          )}
 
           <div className="flex flex-col">
-            <h3>سجاد ژیانجو</h3>
-            <p className="text-[13px] text-gray-600">zhiyanjoo1382@gmail.com</p>
+            <h3>{user.userName}</h3>
+            <p className="text-[13px] text-gray-600">{user.email}</p>
           </div>
         </div>
       </div>

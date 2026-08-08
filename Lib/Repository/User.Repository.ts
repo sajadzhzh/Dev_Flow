@@ -22,6 +22,7 @@ export async function getUserById(id: number) {
       id: users.id,
       userName: users.userName,
       email: users.email,
+      avatar: users.avatar,
     })
     .from(users)
     .where(eq(users.id, id));
